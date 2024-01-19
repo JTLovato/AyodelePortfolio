@@ -25,5 +25,6 @@
     "undici-types": "^5.26.5",
     "webidl-conversions": "^7.0.0",
     "whatwg-url": "^11.0.0"
-  }
+  },
+  "devDependencies": {}
 }

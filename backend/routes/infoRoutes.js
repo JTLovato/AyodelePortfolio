@@ -1,0 +1,82 @@
+import express from "express";
+import expressAsyncHandler from "express-async-handler";
+import Info from "../models/infoModel.js";
+import { isAuth, isAdmin } from "../utils.js";
+
+const infoRouter = express.Router();
+infoRouter.get("/", async (req, res) => {
+  const info = await Info.find();
+  res.send(info);
+});
+infoRouter.post(
+  "/",
+  isAuth,
+  isAdmin,
+  expressAsyncHandler(async (req, res) => {
+    const newInfo = new Info({
+      title: "sample name " + Date.now(),
+      slug: "sample-name-" + Date.now(),
+      image: "/images/p1.jpg",
+      description: "Sample Description",
+      source: "sample source",
+      type: "sample type",
+      blog: "sample description",
+    });
+    const info = await newInfo.save();
+    res.send({ message: "Info Created", info });
+  })
+);
+infoRouter.put(
+  "/:id",
+  isAuth,
+  isAdmin,
+  expressAsyncHandler(async (req, res) => {
+    const infoId = req.params.id;
+    const info = await Info.findById(infoId);
+    if (info) {
+      info.name = req.body.name;
+      info.slug = req.body.slug;
+      info.image = req.body.image;
+      info.description = req.body.description;
+      info.source = req.body.source;
+      info.type = req.body.type;
+      info.blog = req.body.blog;
+      await info.save();
+      res.send({ message: "Info Updated" });
+    } else {
+      res.status(404).send({ message: "Info Not Found" });
+    }
+  })
+);
+infoRouter.delete(
+  "/:id",
+  isAuth,
+  isAdmin,
+  expressAsyncHandler(async (req, res) => {
+    const info = await Info.findById(req.params.id);
+    if (info) {
+      await info.remove();
+      res.send({ message: "Info Deleted" });
+    } else {
+      res.status(404).send({ message: "Info Not Found" });
+    }
+  })
+);
+
+infoRouter.get("/slug/:slug", async (req, res) => {
+  const info = await Info.findOne({ slug: req.params.slug });
+  if (info) {
+    res.send(info);
+  } else {
+    res.status(404).send({ message: "Info Not Found" });
+  }
+});
+infoRouter.get("/:id", async (req, res) => {
+  const info = await Info.findById(req.params.id);
+  if (info) {
+    res.send(info);
+  } else {
+    res.status(404).send({ message: "Info Not Found" });
+  }
+});
+export default infoRouter;

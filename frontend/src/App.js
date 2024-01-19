@@ -1,13 +1,8 @@
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
-import Navbar from "react-bootstrap/Navbar";
-import Badge from "react-bootstrap/Badge";
-import Nav from "react-bootstrap/Nav";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import Container from "react-bootstrap/Container";
 import { useContext, useEffect, useState } from "react";
 import { Store } from "./Store";
 import CartScreen from "./screens/CartScreen";
@@ -19,7 +14,6 @@ import PlaceOrderScreen from "./screens/PlaceOrderScreen";
 import OrderScreen from "./screens/OrderScreen";
 import OrderHistoryScreen from "./screens/OrderHistoryScreen";
 import ProfileScreen from "./screens/ProfileScreen";
-import Button from "react-bootstrap/Button";
 import { getError } from "./utils";
 import axios from "axios";
 import SearchBox from "./components/SearchBox";
@@ -32,6 +26,13 @@ import ProductEditScreen from "./screens/ProductEditScreen";
 import OrderListScreen from "./screens/OrderListScreen";
 import UserListScreen from "./screens/UserListScreen";
 import UserEditScreen from "./screens/UserEditScreen";
+import HistoryScreen from "./screens/HistoryScreen";
+import NewsletterScreen from "./screens/NewsletterScreen";
+import Footer from "./components/Footer";
+import InfoEditScreen from "./screens/InfoEditScreen";
+import InfoListScreen from "./screens/InfoListScreen";
+import LatestInfoScreen from "./screens/LatestInfoScreen";
+import TestScreen from "./screens/TestScreen";
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -68,220 +69,12 @@ function App() {
         }
       >
         <ToastContainer position='bottom-center' limit={1} />
-        <header>
-          <Navbar bg='dark' variant='dark' expand='lg'>
-            <Container>
-              <Button
-                variant='dark'
-                onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
-              >
-                <i className='fas fa-bars'></i>
-              </Button>
 
-              <Link to='/'>
-                <Navbar.Brand>amazona</Navbar.Brand>
-              </Link>
-              <Navbar.Toggle aria-controls='basic-navbar-nav' />
-              <Navbar.Collapse id='basic-navbar-nav'>
-                <SearchBox />
-                <Nav className='me-auto  w-100  justify-content-end'>
-                  <Link to='/cart' className='nav-link'>
-                    Cart
-                    {cart.cartItems.length > 0 && (
-                      <Badge pill bg='danger'>
-                        {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
-                      </Badge>
-                    )}
-                  </Link>
-                  {userInfo ? (
-                    <NavDropdown title={userInfo.name} id='basic-nav-dropdown'>
-                      <Link to='/profile'>User Profile</Link>
-                      <NavDropdown.Divider />
-                      <Link to='/orderhistory'>Order History</Link>
-                      <NavDropdown.Divider />
-                      <Link
-                        className='dropdown-item'
-                        to='#signout'
-                        onClick={signoutHandler}
-                      >
-                        Sign Out
-                      </Link>
-                    </NavDropdown>
-                  ) : (
-                    <Link className='nav-link' to='/signin'>
-                      Sign In
-                    </Link>
-                  )}
-                  {userInfo && userInfo.isAdmin && (
-                    <NavDropdown title='Admin' id='admin-nav-dropdown'>
-                      <Link to='/admin/dashboard'>Dashboard</Link>
-                      {/* <Link to='/admin/productlist'>Products</Link>
-                      <Link to='/admin/orderlist'>Orders</Link>
-                      <Link to='/admin/userlist'>Users</Link> */}
-                      <Link to='/admin/products'>Products</Link>
-                      <Link to='/admin/orders'>Orders</Link>
-                      <Link to='/admin/users'>Users</Link>
-                    </NavDropdown>
-                  )}
-                </Nav>
-              </Navbar.Collapse>
-            </Container>
-          </Navbar>
-        </header>
-        <div
-          className={
-            sidebarIsOpen
-              ? "active-nav side-navbar d-flex justify-content-between flex-wrap flex-column"
-              : "side-navbar d-flex justify-content-between flex-wrap flex-column"
-          }
-        >
-          <Nav className='flex-column text-white w-100 p-2'>
-            <Nav>
-              <strong>Categories</strong>
-            </Nav>
-            {categories.map((category) => (
-              <Nav key={category}>
-                <Link
-                  to={`/search?category=${category}`}
-                  onClick={() => setSidebarIsOpen(false)}
-                >
-                  <Nav>{category}</Nav>
-                </Link>
-              </Nav>
-            ))}
-          </Nav>
-        </div>
-
-        <header>
-          <Navbar expand='lg'>
-            <div className='header-container'>
-              <Link to='/' className='signature-link'>
-                <img
-                  className='signature-logo'
-                  src='../images/signature.png'
-                  alt='signature logo'
-                ></img>
-                <div className='title-word'>PHOTOGRAPHY</div>
-              </Link>
-
-              <nav className='main-nav'>
-                {userInfo && userInfo.isAdmin ? (
-                  <NavDropdown title={userInfo.name} id='basic-nav-dropdown'>
-                    <Link to='/profile'>User Profile</Link>
-                    <Link to='/admin/products'>Products</Link>
-                    <Link to='/admin/users'>Users</Link>
-                    <Link
-                      className='dropdown-item'
-                      to='#signout'
-                      onClick={signoutHandler}
-                    >
-                      Sign Out
-                    </Link>
-                  </NavDropdown>
-                ) : (
-                  <Link className='nav-link' to='/signin'>
-                    Sign In
-                  </Link>
-                )}
-                <Link to='/'>Home</Link>
-                <Link to='/portfolio'>Portfolio</Link>
-                <Link to='/packages'>Packages</Link>
-                <Link to='/about'>About Me</Link>
-                <Link to='/contact'>Contact</Link>
-                <Link to='/testimonials'>Testimonials</Link>
-                <SearchBox />
-              </nav>
-            </div>
-          </Navbar>
-        </header>
-
-        <header>
-          <Navbar bg='dark' variant='dark' expand='lg'>
-            <Container>
-              <Button
-                variant='dark'
-                onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
-              >
-                <i className='fas fa-bars'></i>
-              </Button>
-
-              <Link to='/'>
-                <Navbar.Brand>amazona</Navbar.Brand>
-              </Link>
-              <Navbar.Toggle aria-controls='basic-navbar-nav' />
-              <Navbar.Collapse id='basic-navbar-nav'>
-                <SearchBox />
-                <Nav className='me-auto  w-100  justify-content-end'>
-                  <Link to='/cart' className='nav-link'>
-                    Cart
-                    {cart.cartItems.length > 0 && (
-                      <Badge pill bg='danger'>
-                        {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
-                      </Badge>
-                    )}
-                  </Link>
-                  {userInfo ? (
-                    <NavDropdown title={userInfo.name} id='basic-nav-dropdown'>
-                      <Link to='/profile'>User Profile</Link>
-                      <NavDropdown.Divider />
-                      <Link to='/orderhistory'>Order History</Link>
-                      <NavDropdown.Divider />
-                      <Link
-                        className='dropdown-item'
-                        to='#signout'
-                        onClick={signoutHandler}
-                      >
-                        Sign Out
-                      </Link>
-                    </NavDropdown>
-                  ) : (
-                    <Link className='nav-link' to='/signin'>
-                      Sign In
-                    </Link>
-                  )}
-                  {userInfo && userInfo.isAdmin && (
-                    <NavDropdown title='Admin' id='admin-nav-dropdown'>
-                      <Link to='/admin/dashboard'>Dashboard</Link>
-                      {/* <Link to='/admin/productlist'>Products</Link>
-                      <Link to='/admin/orderlist'>Orders</Link>
-                      <Link to='/admin/userlist'>Users</Link> */}
-                      <Link to='/admin/products'>Products</Link>
-                      <Link to='/admin/orders'>Orders</Link>
-                      <Link to='/admin/users'>Users</Link>
-                    </NavDropdown>
-                  )}
-                </Nav>
-              </Navbar.Collapse>
-            </Container>
-          </Navbar>
-        </header>
-        <div
-          className={
-            sidebarIsOpen
-              ? "active-nav side-navbar d-flex justify-content-between flex-wrap flex-column"
-              : "side-navbar d-flex justify-content-between flex-wrap flex-column"
-          }
-        >
-          <Nav className='flex-column text-white w-100 p-2'>
-            <Nav>
-              <strong>Categories</strong>
-            </Nav>
-            {categories.map((category) => (
-              <Nav key={category}>
-                <Link
-                  to={`/search?category=${category}`}
-                  onClick={() => setSidebarIsOpen(false)}
-                >
-                  <Nav>{category}</Nav>
-                </Link>
-              </Nav>
-            ))}
-          </Nav>
-        </div>
         <main>
-          <Container className='mt-3'>
+          <div className='landing'>
             <Routes>
               <Route path='/product/:slug' element={<ProductScreen />} />
+              <Route path='/infos/:slug' element={<ProductScreen />} />
               <Route path='/cart' element={<CartScreen />} />
               <Route path='/search' element={<SearchScreen />} />
               <Route path='/signin' element={<SigninScreen />} />
@@ -350,10 +143,26 @@ function App() {
                 }
               ></Route>
               <Route
+                path='/admin/infos'
+                element={
+                  <AdminRoute>
+                    <InfoListScreen />
+                  </AdminRoute>
+                }
+              ></Route>
+              <Route
                 path='/admin/product/:id'
                 element={
                   <AdminRoute>
                     <ProductEditScreen />
+                  </AdminRoute>
+                }
+              ></Route>
+              <Route
+                path='/admin/infos/:id'
+                element={
+                  <AdminRoute>
+                    <InfoEditScreen />
                   </AdminRoute>
                 }
               ></Route>
@@ -368,7 +177,14 @@ function App() {
 
               <Route path='/' element={<HomeScreen />} />
             </Routes>
-          </Container>
+          </div>
+          <div>
+            <LatestInfoScreen />
+            <HistoryScreen />
+            <NewsletterScreen />
+            {/* <TestScreen /> */}
+            <Footer />
+          </div>
         </main>
         <footer>
           <div className='text-center'>All rights reserved</div>
