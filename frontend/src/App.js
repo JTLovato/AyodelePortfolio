@@ -15,7 +15,6 @@ import OrderScreen from "./screens/OrderScreen";
 import OrderHistoryScreen from "./screens/OrderHistoryScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import { getError } from "./utils";
-import axios from "axios";
 import SearchBox from "./components/SearchBox";
 import SearchScreen from "./screens/SearchScreen";
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -26,13 +25,18 @@ import ProductEditScreen from "./screens/ProductEditScreen";
 import OrderListScreen from "./screens/OrderListScreen";
 import UserListScreen from "./screens/UserListScreen";
 import UserEditScreen from "./screens/UserEditScreen";
-import HistoryScreen from "./screens/HistoryScreen";
-import NewsletterScreen from "./screens/NewsletterScreen";
-import Footer from "./components/Footer";
 import InfoEditScreen from "./screens/InfoEditScreen";
 import InfoListScreen from "./screens/InfoListScreen";
-import LatestInfoScreen from "./screens/LatestInfoScreen";
-import TestScreen from "./screens/TestScreen";
+import InfoScreen from "./screens/InfoScreen";
+import axios from "axios";
+import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
+import NavDropdown from "react-bootstrap/NavDropdown";
+import Footer from "./components/Footer";
+import LinksScreen from "./screens/LinksScreen";
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -61,6 +65,118 @@ function App() {
   }, []);
   return (
     <BrowserRouter>
+      <Helmet>
+        <title>Ayodele Odubela</title>
+      </Helmet>
+
+      <header>
+        <Navbar expand='lg' fixed='top'>
+          <div className='nav-header'>
+            <Link to='/'>
+              <Navbar.Brand>
+                <img src='../images/logo.png' alt='Logo' />
+              </Navbar.Brand>
+            </Link>
+            <Navbar.Toggle
+              justify-content-end
+              aria-controls='basic-navbar-nav'
+            />
+            <Navbar.Collapse id='basic-navbar-nav'>
+              <Nav className=''>
+                {/* <Link to='/cart' className='nav-link'>
+                    Cart
+                    {cart.cartItems.length > 0 && (
+                      <Badge pill bg='danger'>
+                        {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
+                      </Badge>
+                    )}
+                  </Link> */}
+
+                <Link className='nav-link' to='/'>
+                  About
+                </Link>
+                <Link className='nav-link' to='/'>
+                  Blog
+                </Link>
+                <Link className='nav-link' to='/'>
+                  Projects
+                </Link>
+                <Link className='nav-link' to='/'>
+                  Media
+                </Link>
+                <Link className='nav-link' to='/'>
+                  Schedule
+                </Link>
+                <Link className='nav-link' to='/'>
+                  Store
+                </Link>
+
+                {/* {userInfo ? (
+                    <NavDropdown title={userInfo.name} id='basic-nav-dropdown'>
+                      <Link to='/profile'>User Profile</Link>
+                      <NavDropdown.Divider />
+                      <Link to='/orderhistory'>Order History</Link>
+                      <NavDropdown.Divider />
+                      <Link
+                        className='dropdown-item'
+                        to='#signout'
+                        onClick={signoutHandler}
+                      >
+                        Sign Out
+                      </Link>
+                    </NavDropdown>
+                  ) : (
+                    <Link className='nav-link' to='/signin'>
+                      Sign In
+                    </Link>
+                  )} */}
+                {userInfo && userInfo.isAdmin && (
+                  <NavDropdown title='Admin' id='admin-nav-dropdown'>
+                    <Link className='admin-dropdown' to='/admin/dashboard'>
+                      Dashboard
+                    </Link>
+                    <Link className='admin-dropdown' to='/admin/products'>
+                      Products
+                    </Link>
+                    <Link className='admin-dropdown' to='/admin/orders'>
+                      Orders
+                    </Link>
+                    <Link className='admin-dropdown' to='/admin/users'>
+                      Users
+                    </Link>
+                  </NavDropdown>
+                )}
+                <Link className='nav-link' id='contact-btn' to='/'>
+                  Contact Me!
+                </Link>
+              </Nav>
+            </Navbar.Collapse>
+          </div>
+        </Navbar>
+      </header>
+      <div
+        className={
+          sidebarIsOpen
+            ? "active-nav side-navbar d-flex justify-content-between flex-wrap flex-column"
+            : "side-navbar d-flex justify-content-between flex-wrap flex-column"
+        }
+      >
+        <Nav className='flex-column text-white w-100 p-2'>
+          <Nav>
+            <strong>Categories</strong>
+          </Nav>
+          {categories.map((category) => (
+            <Nav key={category}>
+              <Link
+                to={`/search?category=${category}`}
+                onClick={() => setSidebarIsOpen(false)}
+              >
+                <Nav>{category}</Nav>
+              </Link>
+            </Nav>
+          ))}
+        </Nav>
+      </div>
       <div
         className={
           sidebarIsOpen
@@ -74,11 +190,12 @@ function App() {
           <div className='landing'>
             <Routes>
               <Route path='/product/:slug' element={<ProductScreen />} />
-              <Route path='/infos/:slug' element={<ProductScreen />} />
+              <Route path='/infos/:slug' element={<InfoScreen />} />
               <Route path='/cart' element={<CartScreen />} />
               <Route path='/search' element={<SearchScreen />} />
               <Route path='/signin' element={<SigninScreen />} />
               <Route path='/signup' element={<SignupScreen />} />
+              <Route path='/links' element={<LinksScreen />} />
               <Route
                 path='/profile'
                 element={
@@ -178,17 +295,8 @@ function App() {
               <Route path='/' element={<HomeScreen />} />
             </Routes>
           </div>
-          <div>
-            <LatestInfoScreen />
-            <HistoryScreen />
-            <NewsletterScreen />
-            {/* <TestScreen /> */}
-            <Footer />
-          </div>
         </main>
-        <footer>
-          <div className='text-center'>All rights reserved</div>
-        </footer>
+        <Footer />
       </div>
     </BrowserRouter>
   );

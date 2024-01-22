@@ -44,6 +44,20 @@ function LatestInfoScreen() {
       return <Info info={info} />;
     });
 
+  const firstBlogs = infos
+    .toReversed()
+    .slice(0, 1)
+    .map((info) => {
+      return <Info className='first-blog' info={info} />;
+    });
+
+  const nextTwoBlogs = infos
+    .toReversed()
+    .slice(1, 3)
+    .map((info) => {
+      return <Info className='next-two-blogs' info={info} />;
+    });
+
   return (
     <div className='blog-section'>
       {loading ? (
@@ -53,7 +67,10 @@ function LatestInfoScreen() {
       ) : (
         <div className='blog-holder'>
           <h1>Latest Blogs</h1>
-          {firstThreeBlogs}
+          <div className='inner-blog-holder'>
+            <div className='latest-blog'>{firstBlogs}</div>
+            <div className='next-two-blogs'>{nextTwoBlogs}</div>
+          </div>
         </div>
       )}
     </div>

@@ -20,7 +20,7 @@ export default function Footer() {
           <Link to='/'>Schedule</Link>
           <Link to='/'>Store</Link>
           <Link to='/'>Media</Link>
-          <Link to='/'>Links</Link>
+          <Link to='/links'>Links</Link>
         </div>
       </div>
       <div className='neural-links'>

@@ -10,6 +10,10 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import { useContext, useState } from "react";
 import { Store } from "../Store";
 import { getError } from "../utils";
+import LatestInfoScreen from "./LatestInfoScreen";
+import HistoryScreen from "./HistoryScreen";
+import NewsletterScreen from "./NewsletterScreen";
+import Footer from "../components/Footer";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -71,110 +75,6 @@ function HomeScreen() {
   }, []);
   return (
     <div className='hero-section'>
-      <Helmet>
-        <title>Ayodele Odubela</title>
-      </Helmet>
-
-      <header>
-        <Navbar expand='lg' fixed='top'>
-          <div className='nav-header'>
-            <Link to='/'>
-              <Navbar.Brand>
-                <img src='../images/logo.png' alt='Logo' />
-              </Navbar.Brand>
-            </Link>
-            <Navbar.Toggle aria-controls='basic-navbar-nav' />
-            <Navbar.Collapse id='basic-navbar-nav'>
-              <Nav className=''>
-                {/* <Link to='/cart' className='nav-link'>
-                    Cart
-                    {cart.cartItems.length > 0 && (
-                      <Badge pill bg='danger'>
-                        {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
-                      </Badge>
-                    )}
-                  </Link> */}
-
-                <Link className='nav-link' to='/'>
-                  About
-                </Link>
-                <Link className='nav-link' to='/'>
-                  Blog
-                </Link>
-                <Link className='nav-link' to='/'>
-                  Projects
-                </Link>
-                <Link className='nav-link' to='/'>
-                  Media
-                </Link>
-                <Link className='nav-link' to='/'>
-                  Schedule
-                </Link>
-                <Link className='nav-link' to='/'>
-                  Store
-                </Link>
-
-                {/* {userInfo ? (
-                    <NavDropdown title={userInfo.name} id='basic-nav-dropdown'>
-                      <Link to='/profile'>User Profile</Link>
-                      <NavDropdown.Divider />
-                      <Link to='/orderhistory'>Order History</Link>
-                      <NavDropdown.Divider />
-                      <Link
-                        className='dropdown-item'
-                        to='#signout'
-                        onClick={signoutHandler}
-                      >
-                        Sign Out
-                      </Link>
-                    </NavDropdown>
-                  ) : (
-                    <Link className='nav-link' to='/signin'>
-                      Sign In
-                    </Link>
-                  )} */}
-                {userInfo && userInfo.isAdmin && (
-                  <NavDropdown title='Admin' id='admin-nav-dropdown'>
-                    <Link to='/admin/dashboard'>Dashboard</Link>
-                    <Link to='/admin/productlist'>Products</Link>
-                    <Link to='/admin/orderlist'>Orders</Link>
-                    <Link to='/admin/userlist'>Users</Link>
-                    <Link to='/admin/products'>Products</Link>
-                    <Link to='/admin/orders'>Orders</Link>
-                    <Link to='/admin/users'>Users</Link>
-                  </NavDropdown>
-                )}
-                <Link className='nav-link' id='contact-btn' to='/'>
-                  Contact Me!
-                </Link>
-              </Nav>
-            </Navbar.Collapse>
-          </div>
-        </Navbar>
-      </header>
-      <div
-        className={
-          sidebarIsOpen
-            ? "active-nav side-navbar d-flex justify-content-between flex-wrap flex-column"
-            : "side-navbar d-flex justify-content-between flex-wrap flex-column"
-        }
-      >
-        <Nav className='flex-column text-white w-100 p-2'>
-          <Nav>
-            <strong>Categories</strong>
-          </Nav>
-          {categories.map((category) => (
-            <Nav key={category}>
-              <Link
-                to={`/search?category=${category}`}
-                onClick={() => setSidebarIsOpen(false)}
-              >
-                <Nav>{category}</Nav>
-              </Link>
-            </Nav>
-          ))}
-        </Nav>
-      </div>
       <div className='hero-holder'>
         <div className='hero-image'>
           <img
@@ -197,6 +97,11 @@ function HomeScreen() {
             Contact Me!
           </Link>
         </div>
+      </div>
+      <div>
+        <LatestInfoScreen />
+        <HistoryScreen />
+        <NewsletterScreen />
       </div>
     </div>
   );
