@@ -1,7 +1,5 @@
 import { useEffect, useReducer } from "react";
 import axios from "axios";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import Product from "../components/Product";
 import { Helmet } from "react-helmet-async";
 import LoadingBox from "../components/LoadingBox";
@@ -27,7 +25,6 @@ function StoreScreen() {
     loading: true,
     error: "",
   });
-  // const [products, setProducts] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
       dispatch({ type: "FETCH_REQUEST" });
@@ -42,25 +39,43 @@ function StoreScreen() {
     };
     fetchData();
   }, []);
+
+  // <div>
+  //   {product.countInStock < 11 && product.countInStock > 0 && (
+  //     <h1>Almost Gone!</h1>
+  //   )}
+  //   {product.countInStock === 0 && <h1>Sold Out!</h1>}
+  // </div>;
+  // const featured = () => {
+  //   products.map((product) => {
+  //     if (product.highlight) {
+  //       <Product key={product.slug} product={product}></Product>;
+  //     }
+  //   });
+  // };
+
   return (
-    <div>
+    <div className='store-holder'>
       <Helmet>
-        <title>Amazona</title>
+        <title>Shop</title>
       </Helmet>
-      <h1></h1>
       <div className='products'>
+        <img
+          className='shop-banner'
+          src='/images/shopbanner.jpg'
+          alt='shop banner'
+        />
         {loading ? (
           <LoadingBox />
         ) : error ? (
           <MessageBox variant='danger'>{error}</MessageBox>
         ) : (
-          <Row>
-            {/* {products.map((product) => (
-                <Col key={product.slug} sm={6} md={4} lg={3} className='mb-3'>
-                  <Product product={product}></Product>
-                </Col>
-              ))} */}
-          </Row>
+          <div className='product-card-holder'>
+            {/* <div className='featured'>{featured}</div> */}
+            {products.map((product) => (
+              <Product key={product.slug} product={product}></Product>
+            ))}
+          </div>
         )}
       </div>
     </div>

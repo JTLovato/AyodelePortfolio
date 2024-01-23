@@ -129,135 +129,19 @@ function InfoScreen() {
     <MessageBox variant='danger'>{error}</MessageBox>
   ) : (
     <div>
-      <Row>
-        <Col md={6}>
-          <img className='img-large' src={info.image} alt={info.name}></img>
-        </Col>
-        <Col md={3}>
-          <ListGroup variant='flush'>
-            <ListGroup.Item>
-              <Helmet>
-                <title>{info.name}</title>
-              </Helmet>
-              <h1>{info.name}</h1>
-            </ListGroup.Item>
-            <ListGroup.Item>
-              <Rating
-                rating={info.rating}
-                numReviews={info.numReviews}
-              ></Rating>
-            </ListGroup.Item>
-            <ListGroup.Item>Pirce : ${info.price}</ListGroup.Item>
-            <ListGroup.Item>
-              Description:
-              <p>{info.description}</p>
-            </ListGroup.Item>
-          </ListGroup>
-        </Col>
-        <Col md={3}>
-          <Card>
-            <Card.Body>
-              <ListGroup variant='flush'>
-                <ListGroup.Item>
-                  <Row>
-                    <Col>Price:</Col>
-                    <Col>${info.price}</Col>
-                  </Row>
-                </ListGroup.Item>
-                <ListGroup.Item>
-                  <Row>
-                    <Col>Status:</Col>
-                    <Col>
-                      {info.countInStock > 0 ? (
-                        <Badge bg='success'>In Stock</Badge>
-                      ) : (
-                        <Badge bg='danger'>Unavailable</Badge>
-                      )}
-                    </Col>
-                  </Row>
-                </ListGroup.Item>
-
-                {info.countInStock > 0 && (
-                  <ListGroup.Item>
-                    <div className='d-grid'>
-                      <Button onClick={addToCartHandler} variant='primary'>
-                        Add to Cart
-                      </Button>
-                    </div>
-                  </ListGroup.Item>
-                )}
-              </ListGroup>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
-      {/* <div className='my-3'>
-        <h2 ref={reviewsRef}>Reviews</h2>
-        <div className='mb-3'>
-          {info.reviews.length === 0 && (
-            <MessageBox>There is no review</MessageBox>
-          )}
+      <div className='main-blog-holder'>
+        <div className='blog-img-holder'>
+          <img className='img-main' src={info.image} alt={info.name}></img>
         </div>
-        <ListGroup>
-          {info.reviews.map((review) => (
-            <ListGroup.Item key={review._id}>
-              <strong>{review.name}</strong>
-              <Rating rating={review.rating} caption=' '></Rating>
-              <p>{review.createdAt.substring(0, 10)}</p>
-              <p>{review.comment}</p>
-            </ListGroup.Item>
-          ))}
-        </ListGroup>
-        <div className='my-3'>
-          {userInfo ? (
-            <form onSubmit={submitHandler}>
-              <h2>Write a customer review</h2>
-              <Form.Group className='mb-3' controlId='rating'>
-                <Form.Label>Rating</Form.Label>
-                <Form.Select
-                  aria-label='Rating'
-                  value={rating}
-                  onChange={(e) => setRating(e.target.value)}
-                >
-                  <option value=''>Select...</option>
-                  <option value='1'>1- Poor</option>
-                  <option value='2'>2- Fair</option>
-                  <option value='3'>3- Good</option>
-                  <option value='4'>4- Very good</option>
-                  <option value='5'>5- Excelent</option>
-                </Form.Select>
-              </Form.Group>
-              <FloatingLabel
-                controlId='floatingTextarea'
-                label='Comments'
-                className='mb-3'
-              >
-                <Form.Control
-                  as='textarea'
-                  placeholder='Leave a comment here'
-                  value={comment}
-                  onChange={(e) => setComment(e.target.value)}
-                />
-              </FloatingLabel>
-
-              <div className='mb-3'>
-                <Button disabled={loadingCreateReview} type='submit'>
-                  Submit
-                </Button>
-                {loadingCreateReview && <LoadingBox></LoadingBox>}
-              </div>
-            </form>
-          ) : (
-            <MessageBox>
-              Please{" "}
-              <Link to={`/signin?redirect=/info/${info.slug}`}>
-                Sign In
-              </Link>{" "}
-              to write a review
-            </MessageBox>
-          )}
+        <div>
+          <Helmet>
+            <title>{info.name}</title>
+          </Helmet>
+          <h1>{info.name}</h1>
+          Description:
+          <p>{info.description}</p>
         </div>
-      </div> */}
+      </div>
     </div>
   );
 }

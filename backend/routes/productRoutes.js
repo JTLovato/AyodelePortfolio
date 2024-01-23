@@ -21,9 +21,8 @@ productRouter.post(
       category: "sample category",
       brand: "sample brand",
       countInStock: 0,
-      rating: 0,
-      numReviews: 0,
       description: "sample description",
+      // highlight: false,
     });
     const product = await newProduct.save();
     res.send({ message: "Product Created", product });
@@ -42,9 +41,9 @@ productRouter.put(
       product.price = req.body.price;
       product.image = req.body.image;
       product.category = req.body.category;
-      product.brand = req.body.brand;
       product.countInStock = req.body.countInStock;
       product.description = req.body.description;
+      // product.highlight = req.body.highlight;
       await product.save();
       res.send({ message: "Product Updated" });
     } else {

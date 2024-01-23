@@ -46,6 +46,36 @@ const data = {
       source: "www.thisplace.com/video/embed",
       info: "",
     },
+    {
+      title: "Why Elono Musko Sucks Dick2",
+      slug: "why-elono-musko-sucks-dick2",
+      type: "blog",
+      image: "/images/p1.jpg",
+      description:
+        "perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam,",
+      source: "",
+      info: "Sed ddddut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
+    },
+    {
+      title: "Why Elon Dicky2",
+      slug: "why-elon-dicky2",
+      type: "podcast",
+      image: "/images/p1.jpg",
+      description:
+        "perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam,",
+      source: "www.thisplacetoo.com/podcast/embed",
+      info: "",
+    },
+    {
+      title: "Musk Sucka2",
+      slug: "musk-sucka2",
+      type: "video",
+      image: "/images/p1.jpg",
+      description:
+        "perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam,",
+      source: "www.thisplace.com/video/embed",
+      info: "",
+    },
   ],
   products: [
     {
@@ -56,10 +86,19 @@ const data = {
       image: "/images/p1.jpg", // 679px × 829px
       price: 120,
       countInStock: 100,
-      brand: "Nike",
-      rating: 4.5,
-      numReviews: 10,
       description: "high quality shirt",
+      // hightlight: "false",
+    },
+    {
+      // _id: "1",
+      name: "Ass Slim shirt",
+      slug: "nikeAss-slim-shirt",
+      category: "Shirts",
+      image: "/images/p1.jpg", // 679px × 829px
+      price: 1,
+      countInStock: 10,
+      description: "high quality shirt",
+      // hightlight: false,
     },
     {
       // _id: "2",
@@ -69,10 +108,8 @@ const data = {
       image: "/images/p2.jpg",
       price: 250,
       countInStock: 200,
-      brand: "Adidas",
-      rating: 4.0,
-      numReviews: 10,
       description: "high quality product",
+      // hightlight: true,
     },
     {
       // _id: "3",
@@ -82,10 +119,8 @@ const data = {
       image: "/images/p3.jpg",
       price: 25,
       countInStock: 150,
-      brand: "Nike",
-      rating: 4.5,
-      numReviews: 14,
       description: "high quality product",
+      // hightlight: false,
     },
     {
       // _id: "4",
@@ -95,10 +130,8 @@ const data = {
       image: "/images/p4.jpg",
       price: 65,
       countInStock: 50,
-      brand: "Puma",
-      rating: 4.5,
-      numReviews: 10,
       description: "high quality product",
+      // hightlight: false,
     },
   ],
 };

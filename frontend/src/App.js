@@ -37,6 +37,8 @@ import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Footer from "./components/Footer";
 import LinksScreen from "./screens/LinksScreen";
+import BlogScreen from "./screens/BlogScreen";
+import StoreScreen from "./screens/StoreScreen";
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -95,7 +97,7 @@ function App() {
                 <Link className='nav-link' to='/'>
                   About
                 </Link>
-                <Link className='nav-link' to='/'>
+                <Link className='nav-link' to='/blogs'>
                   Blog
                 </Link>
                 <Link className='nav-link' to='/'>
@@ -107,7 +109,7 @@ function App() {
                 <Link className='nav-link' to='/'>
                   Schedule
                 </Link>
-                <Link className='nav-link' to='/'>
+                <Link className='nav-link' to='/store'>
                   Store
                 </Link>
 
@@ -196,6 +198,7 @@ function App() {
               <Route path='/signin' element={<SigninScreen />} />
               <Route path='/signup' element={<SignupScreen />} />
               <Route path='/links' element={<LinksScreen />} />
+              <Route path='/store' element={<StoreScreen />} />
               <Route
                 path='/profile'
                 element={
@@ -293,6 +296,7 @@ function App() {
               ></Route>
 
               <Route path='/' element={<HomeScreen />} />
+              <Route path='/blogs' element={<BlogScreen />} />
             </Routes>
           </div>
         </main>

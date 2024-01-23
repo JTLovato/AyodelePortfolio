@@ -37,13 +37,6 @@ function LatestInfoScreen() {
     fetchInfoData();
   }, []);
 
-  const firstThreeBlogs = infos
-    .toReversed()
-    .slice(0, 3)
-    .map((info) => {
-      return <Info info={info} />;
-    });
-
   const firstBlogs = infos
     .toReversed()
     .slice(0, 1)

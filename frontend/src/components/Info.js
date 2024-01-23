@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 
 function Info(props) {
   const { info } = props;
-  console.log(info);
   return (
     <Link to={`/infos/${info.slug}`} className='blog-card'>
       {info.type === "podcast" && (
