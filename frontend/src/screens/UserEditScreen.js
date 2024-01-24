@@ -90,11 +90,11 @@ export default function UserEditScreen() {
     }
   };
   return (
-    <Container className='small-container'>
+    <div className='margin-holder profile-screen'>
       <Helmet>
         <title>Edit User ${userId}</title>
       </Helmet>
-      <h1>Edit User {userId}</h1>
+      <h1 className='new-font'>Edit User {userId}</h1>
 
       {loading ? (
         <LoadingBox></LoadingBox>
@@ -129,14 +129,18 @@ export default function UserEditScreen() {
             onChange={(e) => setIsAdmin(e.target.checked)}
           />
 
-          <div className='mb-3'>
-            <Button disabled={loadingUpdate} type='submit'>
+          <div className='center'>
+            <button
+              disabled={loadingUpdate}
+              className='recurring-button'
+              type='submit'
+            >
               Update
-            </Button>
+            </button>
             {loadingUpdate && <LoadingBox></LoadingBox>}
           </div>
         </Form>
       )}
-    </Container>
+    </div>
   );
 }

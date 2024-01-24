@@ -137,16 +137,20 @@ export default function ProductListScreen() {
   };
 
   return (
-    <div>
+    <div className='margin-holder middle-screen'>
       <Row>
         <Col>
-          <h1>Products</h1>
+          <h1 className='new-font'>Products</h1>
         </Col>
         <Col className='col text-end'>
           <div>
-            <Button type='button' onClick={createHandler}>
+            <button
+              type='button'
+              className='recurring-button'
+              onClick={createHandler}
+            >
               Create Product
-            </Button>
+            </button>
           </div>
         </Col>
       </Row>

@@ -41,11 +41,11 @@ export default function SigninScreen() {
   }, [navigate, redirect, userInfo]);
 
   return (
-    <Container className='small-container'>
+    <div className='margin-holder profile-screen'>
       <Helmet>
         <title>Sign In</title>
       </Helmet>
-      <h1 className='my-3'>Sign In</h1>
+      <h1 className='new-font'>Sign In</h1>
       <Form onSubmit={submitHandler}>
         <Form.Group className='mb-3' controlId='email'>
           <Form.Label>Email</Form.Label>
@@ -55,7 +55,7 @@ export default function SigninScreen() {
             onChange={(e) => setEmail(e.target.value)}
           />
         </Form.Group>
-        <Form.Group className='mb-3' controlId='password'>
+        <Form.Group className='' controlId='password'>
           <Form.Label>Password</Form.Label>
           <Form.Control
             type='password'
@@ -63,14 +63,19 @@ export default function SigninScreen() {
             onChange={(e) => setPassword(e.target.value)}
           />{" "}
         </Form.Group>
-        <div className='mb-3'>
-          <Button type='submit'>Sign In</Button>
+        <div className='center'>
+          <button
+            className='recurring-button new-font margin-top'
+            type='submit'
+          >
+            Sign In
+          </button>
         </div>
-        <div className='mb-3'>
+        <div className='center'>
           New customer?{" "}
           <Link to={`/signup?redirect=${redirect}`}>Create your account</Link>
         </div>
       </Form>
-    </Container>
+    </div>
   );
 }

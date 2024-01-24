@@ -61,6 +61,41 @@ main {
   font-family: var(--header-font);
 }
 
+tr:nth-child(odd) td {
+  background-color: #ffe8e8;
+}
+
+.middle-screen {
+  width: 100%;
+  padding: 0 10%;
+  max-width: 2000px;
+}
+
+.recurring-button {
+  width: 80%;
+  background-color: var(--pink);
+  color: var(--white);
+  border-radius: 5px;
+  transition: 0.1s all ease-in-out;
+  border: solid 2px #ffffff00;
+  padding: 10px 10px 14px;
+}
+
+.recurring-button:hover {
+  background: var(--yellow);
+  color: var(--black);
+  transition: 0.1s all ease-in-out;
+  border: solid 2px var(--pink);
+}
+
+.center {
+  text-align: center;
+}
+
+.margin-top {
+  margin: 10px;
+}
+
 .products {
   display: flex;
   flex-wrap: wrap;
@@ -159,9 +194,11 @@ nav .nav-header .navbar-toggler {
   background: rgba(238, 241, 246, 0.8);
   backdrop-filter: blur(16.5px);
   -webkit-backdrop-filter: blur(16.5px);
+  text-align: center;
 }
 .navbar-nav .dropdown-menu a {
   color: var(--black);
+  width: 100%;
 }
 
 #contact-btn {
@@ -673,6 +710,26 @@ iframe {
 
 /* Checkout */
 
+.your-cart-button {
+  width: 50%;
+  background-color: var(--pink);
+  color: var(--white);
+  border-radius: 5px;
+  transition: 0.1s all ease-in-out;
+  border: solid 2px #ffffff00;
+  padding: 10px 10px 14px;
+  text-align: center;
+  margin: 5px;
+  text-decoration: none;
+  font-size: 150%;
+}
+.checkout-continue-button:hover {
+  background: var(--yellow);
+  color: var(--black);
+  transition: 0.1s all ease-in-out;
+  border: solid 2px var(--pink);
+}
+
 .checkout-holder {
   margin: 120px 15px;
 }
@@ -685,6 +742,7 @@ iframe {
   transition: 0.1s all ease-in-out;
   border: solid 2px #ffffff00;
   padding: 10px 10px 14px;
+  text-align: center;
 }
 
 .checkout-continue-button:hover {
@@ -748,9 +806,85 @@ iframe {
   font-size: 150%;
 }
 
+/* About */
+
+.about-screen-holder {
+  text-align: center;
+}
+
+.pdf_download {
+  color: var(--white);
+  background-color: var(--pink);
+  padding: 5px 15px 10px;
+  border-radius: 5px;
+  border: none;
+  transition: 0.1s all ease-in-out;
+  border: solid 1px #ffffff00;
+  margin: 5px;
+}
+
+.pdf_download:hover {
+  background-color: var(--yellow);
+  color: var(--black);
+  transition: 0.1s all ease-in-out;
+  border: solid 1px var(--pink);
+}
+
+.talk-link {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  margin: 10px 0px;
+  background-color: #ffe8e8;
+  border-bottom: solid 2px var(--pink);
+  transition: 0.1s all ease-in-out;
+}
+
+.talk-link:hover h1 {
+  background-color: var(--pink);
+  color: var(--white);
+  transition: 0.1s all ease-in-out;
+}
+
+.talk-link h1 {
+  color: var(--black);
+  padding: 15px;
+  margin: 0;
+}
+
+.talk-link-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  object-position: 0% 0%;
+}
+
+.talks-holder {
+  margin-top: 15px;
+}
+
+.img-main-talk {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  object-position: 0% 0%;
+}
+
+.sign-up-holder {
+  width: 80%;
+  margin: 120px 10%;
+}
+
+/* 
+ */
+/*  */
+/*  */
 /* -------- */
 /* DESKTOPS */
 /* -------- */
+/*  */
+/*  */
+/*  */
 
 @media only screen and (min-width: 992px) {
   .nav-header {
@@ -1000,5 +1134,46 @@ iframe {
   .payment-screen {
     max-width: 800px;
     margin-top: 100px;
+  }
+
+  .talks-holder {
+    display: flex;
+    justify-content: center;
+  }
+
+  .talk-link {
+    width: 400px;
+    margin: 10px;
+  }
+
+  .talk-link-image {
+    transition: 0.1s all ease-in-out;
+  }
+
+  .talk-link:hover .talk-link-image {
+    object-position: 5% 5%;
+    transition: 0.1s all ease-in-out;
+  }
+
+  .main-talk-holder {
+    width: 80%;
+    margin: 120px 10%;
+    max-width: 1500px;
+  }
+
+  .talk-desc {
+    font-size: 200%;
+  }
+
+  .sign-up-holder {
+    width: 100%;
+    padding: 0 30%;
+    max-width: 2000px;
+  }
+
+  .profile-screen {
+    width: 100%;
+    padding: 0 30%;
+    max-width: 2000px;
   }
 }

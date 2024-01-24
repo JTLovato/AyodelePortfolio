@@ -62,11 +62,11 @@ export default function ProfileScreen() {
   };
 
   return (
-    <div className='container small-container'>
+    <div className='margin-holder profile-screen'>
       <Helmet>
         <title>User Profile</title>
       </Helmet>
-      <h1 className='my-3'>User Profile</h1>
+      <h1 className='new-font'>User Profile</h1>
       <form onSubmit={submitHandler}>
         <Form.Group className='mb-3' controlId='name'>
           <Form.Label>Name</Form.Label>
@@ -99,8 +99,10 @@ export default function ProfileScreen() {
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
         </Form.Group>
-        <div className='mb-3'>
-          <Button type='submit'>Update</Button>
+        <div className='mb-3 center'>
+          <Button className='recurring-button' type='submit'>
+            Update
+          </Button>
         </div>
       </form>
     </div>

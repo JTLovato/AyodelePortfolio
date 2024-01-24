@@ -3,6 +3,7 @@ import axios from "axios";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 import Info from "../components/Info";
+import { Link } from "react-router-dom";
 
 const reducer = (state, action) => {
   switch (action.type) {

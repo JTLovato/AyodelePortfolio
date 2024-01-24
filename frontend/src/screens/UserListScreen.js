@@ -91,11 +91,11 @@ export default function UserListScreen() {
     }
   };
   return (
-    <div>
+    <div className='margin-holder middle-screen'>
       <Helmet>
         <title>Users</title>
       </Helmet>
-      <h1>Users</h1>
+      <h1 className='new-font'>Users</h1>
       {loadingDelete && <LoadingBox></LoadingBox>}
       {loading ? (
         <LoadingBox></LoadingBox>
@@ -134,7 +134,7 @@ export default function UserListScreen() {
                     onClick={() => deleteHandler(user)}
                   >
                     Delete
-                  </Button>          
+                  </Button>
                 </td>
               </tr>
             ))}

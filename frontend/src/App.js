@@ -15,7 +15,6 @@ import OrderScreen from "./screens/OrderScreen";
 import OrderHistoryScreen from "./screens/OrderHistoryScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import { getError } from "./utils";
-import SearchBox from "./components/SearchBox";
 import SearchScreen from "./screens/SearchScreen";
 import ProtectedRoute from "./components/ProtectedRoute";
 import DashboardScreen from "./screens/DashboardScreen";
@@ -39,6 +38,11 @@ import Footer from "./components/Footer";
 import LinksScreen from "./screens/LinksScreen";
 import BlogScreen from "./screens/BlogScreen";
 import StoreScreen from "./screens/StoreScreen";
+import ScheduleScreen from "./screens/ScheduleScreen";
+import AboutScreen from "./screens/AboutScreen";
+import TalkScreen from "./screens/TalkScreen";
+import ProjectScreen from "./screens/ProjectsScreen";
+import ContactScreen from "./screens/ContactScreen";
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -54,6 +58,7 @@ function App() {
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
   const [categories, setCategories] = useState([]);
 
+  const [isActive, setIsActive] = useState(false);
   useEffect(() => {
     const fetchCategories = async () => {
       try {
@@ -85,53 +90,41 @@ function App() {
             />
             <Navbar.Collapse id='basic-navbar-nav'>
               <Nav className=''>
-                {/* <Link to='/cart' className='nav-link'>
-                    Cart
-                    {cart.cartItems.length > 0 && (
-                      <Badge pill bg='danger'>
-                        {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
-                      </Badge>
-                    )}
-                  </Link> */}
-
-                <Link className='nav-link' to='/'>
+                <Link className='nav-link' to='/about'>
                   About
                 </Link>
                 <Link className='nav-link' to='/blogs'>
                   Blog
                 </Link>
-                <Link className='nav-link' to='/'>
+                <Link className='nav-link' to='/projects'>
                   Projects
                 </Link>
-                <Link className='nav-link' to='/'>
-                  Media
-                </Link>
-                <Link className='nav-link' to='/'>
+                <Link className='nav-link' to='/schedule'>
                   Schedule
                 </Link>
                 <Link className='nav-link' to='/store'>
                   Store
                 </Link>
 
-                {/* {userInfo ? (
-                    <NavDropdown title={userInfo.name} id='basic-nav-dropdown'>
-                      <Link to='/profile'>User Profile</Link>
-                      <NavDropdown.Divider />
-                      <Link to='/orderhistory'>Order History</Link>
-                      <NavDropdown.Divider />
-                      <Link
-                        className='dropdown-item'
-                        to='#signout'
-                        onClick={signoutHandler}
-                      >
-                        Sign Out
-                      </Link>
-                    </NavDropdown>
-                  ) : (
-                    <Link className='nav-link' to='/signin'>
-                      Sign In
+                {userInfo ? (
+                  <NavDropdown title={userInfo.name} id='nav-dropdown'>
+                    <Link to='/profile'>User Profile</Link>
+                    <NavDropdown.Divider />
+                    <Link to='/orderhistory'>Order History</Link>
+                    <NavDropdown.Divider />
+                    <Link
+                      className='dropdown-item'
+                      to='#signout'
+                      onClick={signoutHandler}
+                    >
+                      Sign Out
                     </Link>
-                  )} */}
+                  </NavDropdown>
+                ) : (
+                  <Link className='nav-link' to='/signin'>
+                    Sign In
+                  </Link>
+                )}
                 {userInfo && userInfo.isAdmin && (
                   <NavDropdown title='Admin' id='admin-nav-dropdown'>
                     <Link className='admin-dropdown' to='/admin/dashboard'>
@@ -148,7 +141,7 @@ function App() {
                     </Link>
                   </NavDropdown>
                 )}
-                <Link className='nav-link' id='contact-btn' to='/'>
+                <Link className='nav-link' id='contact-btn' to='/contact'>
                   Contact Me!
                 </Link>
               </Nav>
@@ -193,12 +186,17 @@ function App() {
             <Routes>
               <Route path='/product/:slug' element={<ProductScreen />} />
               <Route path='/infos/:slug' element={<InfoScreen />} />
+              <Route path='/talks/:slug' element={<TalkScreen />} />
+              <Route path='/projects/:slug' element={<ProjectScreen />} />
               <Route path='/cart' element={<CartScreen />} />
               <Route path='/search' element={<SearchScreen />} />
               <Route path='/signin' element={<SigninScreen />} />
               <Route path='/signup' element={<SignupScreen />} />
               <Route path='/links' element={<LinksScreen />} />
               <Route path='/store' element={<StoreScreen />} />
+              <Route path='/schedule' element={<ScheduleScreen />} />
+              <Route path='/about' element={<AboutScreen />} />
+              <Route path='/contact' element={<ContactScreen />} />
               <Route
                 path='/profile'
                 element={
@@ -297,6 +295,7 @@ function App() {
 
               <Route path='/' element={<HomeScreen />} />
               <Route path='/blogs' element={<BlogScreen />} />
+              <Route path='/projects' element={<ProjectScreen />} />
             </Routes>
           </div>
         </main>
