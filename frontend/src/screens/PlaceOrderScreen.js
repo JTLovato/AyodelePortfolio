@@ -78,17 +78,17 @@ export default function PlaceOrderScreen() {
   }, [cart, navigate]);
 
   return (
-    <div>
+    <div className='margin-holder'>
       <CheckoutSteps step1 step2 step3 step4></CheckoutSteps>
       <Helmet>
-        <title>Preview Order</title>
+        <title>Confirm Your Order</title>
       </Helmet>
-      <h1 className='my-3'>Preview Order</h1>
+      <h1 className='my-3 new-font italics'>Confirm Your Order</h1>
       <Row>
         <Col md={8}>
           <Card className='mb-3'>
             <Card.Body>
-              <Card.Title>Shipping</Card.Title>
+              <Card.Title className='new-font'>Shipping</Card.Title>
               <Card.Text>
                 <strong>Name:</strong> {cart.shippingAddress.fullName} <br />
                 <strong>Address: </strong> {cart.shippingAddress.address},<br />
@@ -96,23 +96,27 @@ export default function PlaceOrderScreen() {
                 <br />
                 {cart.shippingAddress.postalCode},{cart.shippingAddress.country}
               </Card.Text>
-              <Link to='/shipping'>Edit</Link>
+              <Link to='/shipping' className='order-edit-button'>
+                Edit
+              </Link>
             </Card.Body>
           </Card>
 
           <Card className='mb-3'>
             <Card.Body>
-              <Card.Title>Payment</Card.Title>
+              <Card.Title className='new-font'>Payment</Card.Title>
               <Card.Text>
                 <strong>Method:</strong> {cart.paymentMethod}
               </Card.Text>
-              <Link to='/payment'>Edit</Link>
+              <Link to='/payment'>
+                <button className='order-edit-button'>Edit</button>
+              </Link>
             </Card.Body>
           </Card>
 
           <Card className='mb-3'>
             <Card.Body>
-              <Card.Title>Items</Card.Title>
+              <Card.Title className='new-font'>Your Items</Card.Title>
               <ListGroup variant='flush'>
                 {cart.cartItems.map((item) => (
                   <ListGroup.Item key={item._id}>
@@ -123,24 +127,31 @@ export default function PlaceOrderScreen() {
                           alt={item.name}
                           className='img-fluid rounded img-thumbnail'
                         ></img>{" "}
-                        <Link to={`/product/${item.slug}`}>{item.name}</Link>
+                        <Link
+                          to={`/product/${item.slug}`}
+                          className='item-name-link'
+                        >
+                          {item.name}
+                        </Link>
                       </Col>
                       <Col md={3}>
-                        <span>{item.quantity}</span>
+                        <span>Quantity: {item.quantity}</span>
                       </Col>
                       <Col md={3}>${item.price}</Col>
                     </Row>
                   </ListGroup.Item>
                 ))}
               </ListGroup>
-              <Link to='/cart'>Edit</Link>
+              <Link to='/cart'>
+                <button className='order-edit-button'>Edit</button>
+              </Link>
             </Card.Body>
           </Card>
         </Col>
         <Col md={4}>
           <Card>
             <Card.Body>
-              <Card.Title>Order Summary</Card.Title>
+              <Card.Title className='new-font'>Order Summary</Card.Title>
               <ListGroup variant='flush'>
                 <ListGroup.Item>
                   <Row>
@@ -172,13 +183,14 @@ export default function PlaceOrderScreen() {
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <div className='d-grid'>
-                    <Button
+                    <button
                       type='button'
+                      className='order-edit-button new-font'
                       onClick={placeOrderHandler}
                       disabled={cart.cartItems.length === 0}
                     >
                       Place Order
-                    </Button>
+                    </button>
                   </div>
                   {loading && <LoadingBox></LoadingBox>}
                 </ListGroup.Item>

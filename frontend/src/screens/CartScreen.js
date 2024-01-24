@@ -39,13 +39,13 @@ export default function CartScreen() {
       </Helmet>
       <h1>Your Cart</h1>
       <div>
-        <div>
+        <div className='cart-holder'>
           {cartItems.length === 0 ? (
             <MessageBox>
               Cart is empty. <Link to='/'>Go Shopping</Link>
             </MessageBox>
           ) : (
-            <div>
+            <div className='cart-list'>
               {cartItems.map((item) => (
                 <div
                   to={`/product/${item.slug}`}
@@ -102,19 +102,19 @@ export default function CartScreen() {
               ))}
             </div>
           )}
-        </div>
-        <div className='totals'>
-          <h3>
-            Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)} items) : $
-            {cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}
-          </h3>
-          <button
-            className='checkout-button'
-            onClick={checkoutHandler}
-            disabled={cartItems.length === 0}
-          >
-            Proceed to Checkout
-          </button>
+          <div className='totals'>
+            <h3>
+              Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)} items) :
+              ${cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}
+            </h3>
+            <button
+              className='checkout-button'
+              onClick={checkoutHandler}
+              disabled={cartItems.length === 0}
+            >
+              Proceed to Checkout
+            </button>
+          </div>
         </div>
       </div>
     </div>

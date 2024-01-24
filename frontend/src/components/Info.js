@@ -13,7 +13,7 @@ function Info(props) {
       {info.type === "video" && (
         <img src='/images/video-icon.png' alt='' className='card-icon'></img>
       )}
-      <h1 className='card-title'>{info.title}</h1>
+      <h1 className='info-card-title'>{info.title}</h1>
       <p className='card-desc'>{info.description}</p>
       <img src={info.image} className='card-img' alt={info.name} />
     </Link>
