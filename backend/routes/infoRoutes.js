@@ -63,6 +63,110 @@ infoRouter.delete(
   })
 );
 
+const PAGE_SIZE = 9;
+
+infoRouter.get(
+  "/admin",
+  isAuth,
+  isAdmin,
+  expressAsyncHandler(async (req, res) => {
+    const { query } = req;
+    const page = query.page || 1;
+    const pageSize = query.pageSize || PAGE_SIZE;
+    const info = await Info.find()
+      .skip(pageSize * (page - 1))
+      .limit(pageSize);
+    const countInfos = await Info.countDocuments();
+    res.send({
+      info,
+      countInfos,
+      page,
+      pages: Math.ceil(countInfos / pageSize),
+    });
+  })
+);
+infoRouter.get(
+  "/searchinfos",
+  expressAsyncHandler(async (req, res) => {
+    const { query } = req;
+    const pageSize = query.pageSize || PAGE_SIZE;
+    const page = query.page || 1;
+    const category = query.category || "";
+    const price = query.price || "";
+    const rating = query.rating || "";
+    const order = query.order || "";
+    const searchQuery = query.query || "";
+    const queryFilter =
+      searchQuery && searchQuery !== "all"
+        ? {
+            name: {
+              $regex: searchQuery,
+              $options: "i",
+            },
+          }
+        : {};
+    const categoryFilter = category && category !== "all" ? { category } : {};
+    const ratingFilter =
+      rating && rating !== "all"
+        ? {
+            rating: {
+              $gte: Number(rating),
+            },
+          }
+        : {};
+    const priceFilter =
+      price && price !== "all"
+        ? {
+            // 1-50
+            price: {
+              $gte: Number(price.split("-")[0]),
+              $lte: Number(price.split("-")[1]),
+            },
+          }
+        : {};
+    const sortOrder =
+      order === "featured"
+        ? { featured: -1 }
+        : order === "lowest"
+        ? { price: 1 }
+        : order === "highest"
+        ? { price: -1 }
+        : order === "toprated"
+        ? { rating: -1 }
+        : order === "newest"
+        ? { createdAt: -1 }
+        : { _id: -1 };
+    const infos = await Info.find({
+      ...queryFilter,
+      ...categoryFilter,
+      ...priceFilter,
+      ...ratingFilter,
+    })
+      .sort(sortOrder)
+      .skip(pageSize * (page - 1))
+      .limit(pageSize);
+    const countInfos = await Info.countDocuments({
+      ...queryFilter,
+      ...categoryFilter,
+      ...priceFilter,
+      ...ratingFilter,
+    });
+    res.send({
+      infos,
+      countInfos,
+      page,
+      pages: Math.ceil(countInfos / pageSize),
+    });
+  })
+);
+infoRouter.get(
+  "/categories",
+  expressAsyncHandler(async (req, res) => {
+    const categories = await Info.find().distinct("category");
+    res.send(categories);
+  })
+);
+
 infoRouter.get("/slug/:slug", async (req, res) => {
   const info = await Info.findOne({ slug: req.params.slug });
   if (info) {

@@ -24,8 +24,6 @@ import ProductEditScreen from "./screens/ProductEditScreen";
 import OrderListScreen from "./screens/OrderListScreen";
 import UserListScreen from "./screens/UserListScreen";
 import UserEditScreen from "./screens/UserEditScreen";
-import InfoEditScreen from "./screens/InfoEditScreen";
-import InfoListScreen from "./screens/InfoListScreen";
 import InfoScreen from "./screens/InfoScreen";
 import axios from "axios";
 import { Helmet } from "react-helmet-async";
@@ -58,18 +56,6 @@ function App() {
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
   const [categories, setCategories] = useState([]);
 
-  const [isActive, setIsActive] = useState(false);
-  useEffect(() => {
-    const fetchCategories = async () => {
-      try {
-        const { data } = await axios.get(`/api/products/categories`);
-        setCategories(data);
-      } catch (err) {
-        toast.error(getError(err));
-      }
-    };
-    fetchCategories();
-  }, []);
   return (
     <BrowserRouter>
       <Helmet>
@@ -149,158 +135,108 @@ function App() {
           </div>
         </Navbar>
       </header>
-      <div
-        className={
-          sidebarIsOpen
-            ? "active-nav side-navbar d-flex justify-content-between flex-wrap flex-column"
-            : "side-navbar d-flex justify-content-between flex-wrap flex-column"
-        }
-      >
-        <Nav className='flex-column text-white w-100 p-2'>
-          <Nav>
-            <strong>Categories</strong>
-          </Nav>
-          {categories.map((category) => (
-            <Nav key={category}>
-              <Link
-                to={`/search?category=${category}`}
-                onClick={() => setSidebarIsOpen(false)}
-              >
-                <Nav>{category}</Nav>
-              </Link>
-            </Nav>
-          ))}
-        </Nav>
-      </div>
-      <div
-        className={
-          sidebarIsOpen
-            ? "d-flex flex-column site-container active-cont"
-            : "d-flex flex-column site-container"
-        }
-      >
-        <ToastContainer position='bottom-center' limit={1} />
+      <ToastContainer position='bottom-center' limit={1} />
 
-        <main>
-          <div className='landing'>
-            <Routes>
-              <Route path='/product/:slug' element={<ProductScreen />} />
-              <Route path='/infos/:slug' element={<InfoScreen />} />
-              <Route path='/talks/:slug' element={<TalkScreen />} />
-              <Route path='/projects/:slug' element={<ProjectScreen />} />
-              <Route path='/cart' element={<CartScreen />} />
-              <Route path='/search' element={<SearchScreen />} />
-              <Route path='/signin' element={<SigninScreen />} />
-              <Route path='/signup' element={<SignupScreen />} />
-              <Route path='/links' element={<LinksScreen />} />
-              <Route path='/store' element={<StoreScreen />} />
-              <Route path='/schedule' element={<ScheduleScreen />} />
-              <Route path='/about' element={<AboutScreen />} />
-              <Route path='/contact' element={<ContactScreen />} />
-              <Route
-                path='/profile'
-                element={
-                  <ProtectedRoute>
-                    <ProfileScreen />
-                  </ProtectedRoute>
-                }
-              />
-              <Route path='/placeorder' element={<PlaceOrderScreen />} />
-              <Route
-                path='/order/:id'
-                element={
-                  <ProtectedRoute>
-                    <OrderScreen />
-                  </ProtectedRoute>
-                }
-              ></Route>
-              <Route
-                path='/orderhistory'
-                element={
-                  <ProtectedRoute>
-                    <OrderHistoryScreen />
-                  </ProtectedRoute>
-                }
-              ></Route>
-              <Route
-                path='/shipping'
-                element={<ShippingAddressScreen />}
-              ></Route>
-              <Route path='/payment' element={<PaymentMethodScreen />}></Route>
-              {/* Admin Routes */}
-              <Route
-                path='/admin/dashboard'
-                element={
-                  <AdminRoute>
-                    <DashboardScreen />
-                  </AdminRoute>
-                }
-              ></Route>
-              <Route
-                path='/admin/orders'
-                element={
-                  <AdminRoute>
-                    <OrderListScreen />
-                  </AdminRoute>
-                }
-              ></Route>
-              <Route
-                path='/admin/users'
-                element={
-                  <AdminRoute>
-                    <UserListScreen />
-                  </AdminRoute>
-                }
-              ></Route>
-              <Route
-                path='/admin/products'
-                element={
-                  <AdminRoute>
-                    <ProductListScreen />
-                  </AdminRoute>
-                }
-              ></Route>
-              <Route
-                path='/admin/infos'
-                element={
-                  <AdminRoute>
-                    <InfoListScreen />
-                  </AdminRoute>
-                }
-              ></Route>
-              <Route
-                path='/admin/product/:id'
-                element={
-                  <AdminRoute>
-                    <ProductEditScreen />
-                  </AdminRoute>
-                }
-              ></Route>
-              <Route
-                path='/admin/infos/:id'
-                element={
-                  <AdminRoute>
-                    <InfoEditScreen />
-                  </AdminRoute>
-                }
-              ></Route>
-              <Route
-                path='/admin/user/:id'
-                element={
-                  <AdminRoute>
-                    <UserEditScreen />
-                  </AdminRoute>
-                }
-              ></Route>
+      <main>
+        <div className='landing'>
+          <Routes>
+            <Route path='/product/:slug' element={<ProductScreen />} />
+            <Route path='/infos/:slug' element={<InfoScreen />} />
+            <Route path='/talks/:slug' element={<TalkScreen />} />
+            <Route path='/projects/:slug' element={<ProjectScreen />} />
+            <Route path='/cart' element={<CartScreen />} />
+            <Route path='/search' element={<SearchScreen />} />
+            <Route path='/signin' element={<SigninScreen />} />
+            <Route path='/signup' element={<SignupScreen />} />
+            <Route path='/links' element={<LinksScreen />} />
+            <Route path='/store' element={<StoreScreen />} />
+            <Route path='/schedule' element={<ScheduleScreen />} />
+            <Route path='/about' element={<AboutScreen />} />
+            <Route path='/contact' element={<ContactScreen />} />
+            <Route
+              path='/profile'
+              element={
+                <ProtectedRoute>
+                  <ProfileScreen />
+                </ProtectedRoute>
+              }
+            />
+            <Route path='/placeorder' element={<PlaceOrderScreen />} />
+            <Route
+              path='/order/:id'
+              element={
+                <ProtectedRoute>
+                  <OrderScreen />
+                </ProtectedRoute>
+              }
+            ></Route>
+            <Route
+              path='/orderhistory'
+              element={
+                <ProtectedRoute>
+                  <OrderHistoryScreen />
+                </ProtectedRoute>
+              }
+            ></Route>
+            <Route path='/shipping' element={<ShippingAddressScreen />}></Route>
+            <Route path='/payment' element={<PaymentMethodScreen />}></Route>
+            {/* Admin Routes */}
+            <Route
+              path='/admin/dashboard'
+              element={
+                <AdminRoute>
+                  <DashboardScreen />
+                </AdminRoute>
+              }
+            ></Route>
+            <Route
+              path='/admin/orders'
+              element={
+                <AdminRoute>
+                  <OrderListScreen />
+                </AdminRoute>
+              }
+            ></Route>
+            <Route
+              path='/admin/users'
+              element={
+                <AdminRoute>
+                  <UserListScreen />
+                </AdminRoute>
+              }
+            ></Route>
+            <Route
+              path='/admin/products'
+              element={
+                <AdminRoute>
+                  <ProductListScreen />
+                </AdminRoute>
+              }
+            ></Route>
+            <Route
+              path='/admin/product/:id'
+              element={
+                <AdminRoute>
+                  <ProductEditScreen />
+                </AdminRoute>
+              }
+            ></Route>
+            <Route
+              path='/admin/user/:id'
+              element={
+                <AdminRoute>
+                  <UserEditScreen />
+                </AdminRoute>
+              }
+            ></Route>
 
-              <Route path='/' element={<HomeScreen />} />
-              <Route path='/blogs' element={<BlogScreen />} />
-              <Route path='/projects' element={<ProjectScreen />} />
-            </Routes>
-          </div>
-        </main>
-        <Footer />
-      </div>
+            <Route path='/' element={<HomeScreen />} />
+            <Route path='/blogs' element={<BlogScreen />} />
+            <Route path='/projects' element={<ProjectScreen />} />
+          </Routes>
+        </div>
+      </main>
+      <Footer />
     </BrowserRouter>
   );
 }

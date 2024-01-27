@@ -10,10 +10,11 @@ export default function ContactScreen() {
 
   return (
     <div className='contact-holder margin-holder'>
-      <h1>Contact me!</h1>
+      <h1>Got A Question?</h1>
 
       <div className='contact-js-holder'>
         {info ? <ContactUs session={info} /> : <ContactUs session={nonInfo} />}
+        <img src='/images/envelope.png' alt='Envelope drawing'></img>
       </div>
     </div>
   );

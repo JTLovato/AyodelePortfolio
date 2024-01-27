@@ -136,6 +136,8 @@ export default function ProductListScreen() {
     }
   };
 
+  console.log(products);
+
   return (
     <div className='margin-holder middle-screen'>
       <Row>
@@ -168,9 +170,7 @@ export default function ProductListScreen() {
               <tr>
                 <th>ID</th>
                 <th>NAME</th>
-                <th>PRICE</th>
-                <th>CATEGORY</th>
-                <th>BRAND</th>
+                <th>TYPE</th>
                 <th>ACTIONS</th>
               </tr>
             </thead>
@@ -180,8 +180,6 @@ export default function ProductListScreen() {
                   <td>{product._id}</td>
                   <td>{product.name}</td>
                   <td>{product.price}</td>
-                  <td>{product.category}</td>
-                  <td>{product.brand}</td>
                   <td>
                     <Button
                       type='button'
