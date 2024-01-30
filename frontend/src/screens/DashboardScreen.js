@@ -52,7 +52,7 @@ export default function DashboardScreen() {
   }, [userInfo]);
 
   return (
-    <div>
+    <div className='margin-holder dashboard'>
       <h1>Dashboard</h1>
       {loading ? (
         <LoadingBox />

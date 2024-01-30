@@ -51,7 +51,7 @@ function ProjectScreen() {
         <MessageBox variant='danger'>{error}</MessageBox>
       ) : (
         <div className='about-screen-holder'>
-          <h2>About Ayodele</h2>
+          <h2 className='new-font'>About Ayodele</h2>
           <h4>
             This is where I discuss my projects and other things. Lookit here at
             all this text. Wowzers.

@@ -137,7 +137,7 @@ export default function InfoListScreen() {
       </Helmet>
       <Row>
         <Col>
-          <h1 className='new-font'>Products</h1>
+          <h1 className='new-font'>Blogs</h1>
         </Col>
         <Col className='col text-end'>
           <div>
@@ -146,12 +146,11 @@ export default function InfoListScreen() {
               className='recurring-button'
               onClick={createHandler}
             >
-              Create Product
+              Create Post
             </button>
           </div>
         </Col>
       </Row>
-      <h1 className='new-font'>Blogs</h1>
       {loadingDelete && <LoadingBox></LoadingBox>}
       {loading ? (
         <LoadingBox></LoadingBox>
@@ -171,7 +170,9 @@ export default function InfoListScreen() {
             {infos.map((info) => (
               <tr key={info._id}>
                 <td>{info._id}</td>
-                <td>{info.title}</td>
+                <td>
+                  <Link to={`/info/${info.slug}`}>{info.title}</Link>
+                </td>
                 <td>{info.type}</td>
                 <td>
                   <Button

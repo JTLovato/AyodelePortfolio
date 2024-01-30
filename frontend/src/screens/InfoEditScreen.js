@@ -9,7 +9,9 @@ import Form from "react-bootstrap/Form";
 import { Helmet } from "react-helmet-async";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
-import Button from "react-bootstrap/Button";
+import HTMLTagRenderer from "../components/HTMLTagRenderer";
+import Accordion from "react-bootstrap/Accordion";
+
 const reducer = (state, action) => {
   switch (action.type) {
     case "FETCH_REQUEST":
@@ -133,12 +135,23 @@ export default function InfoEditScreen() {
     }
   };
 
+  const sampleCode = `<b>Bold</b>   <h1>LARGEST HEADER</h1>   <h2></h2>   <h3>Medium Header</h3>   <h4></h4>
+     <h5>smallest header</h5>   <span class="SEE_SECOND_MENU"></span>   <i>Italics</i>   <p>paragraph</>
+        <blockquote>"Block Quote"</blockquote>   <div class="SEE_SECOND_MENU">Divide</div>   <caption>Caption</caption> 
+      <a href="www.YOUR_LINK_HERE.com">Your Link Name</a>   <table> <tbody> <th> </th> <tr> </tr> </tbody> </table>
+`;
+
+  const sampleCode2 = `COLORS: White, Red, Blue, Pink, Yellow, Green. class="font-COLOR"
+BACKGROUND COLORS: White, Red, Blue, Pink, Yellow, Green. class="bg-COLOR"
+
+`;
+
   return (
-    <Container className='small-container'>
+    <Container className='margin-holder center'>
       <Helmet>
         <title>Edit Info ${infoId}</title>
       </Helmet>
-      <h1>Edit Info {infoId}</h1>
+      <h1 className='new-font'>Edit Info {infoId}</h1>
       {loading ? (
         <LoadingBox></LoadingBox>
       ) : error ? (
@@ -159,37 +172,14 @@ export default function InfoEditScreen() {
               value={slug}
               onChange={(e) => setSlug(e.target.value)}
               required
-            />
-          </Form.Group>
-          <Form.Group className='mb-3' controlId='name'>
-            <Form.Label>Source</Form.Label>
-            <Form.Control
-              value={source}
-              onChange={(e) => setSource(e.target.value)}
-              required
-            />
-          </Form.Group>
-          <Form.Group className='mb-3' controlId='image'>
-            <Form.Label>Image File</Form.Label>
-            <Form.Control
-              value={image}
-              onChange={(e) => setImage(e.target.value)}
-              required
+              disabled
+              readonly
             />
           </Form.Group>
           <Form.Group className='mb-3' controlId='imageFile'>
             <Form.Label>Upload File</Form.Label>
             <Form.Control type='file' onChange={uploadFileHandler} />
             {loadingUpload && <LoadingBox></LoadingBox>}
-          </Form.Group>
-
-          <Form.Group className='mb-3' controlId='category'>
-            <Form.Label>Blog</Form.Label>
-            <Form.Control
-              value={blog}
-              onChange={(e) => setBlog(e.target.value)}
-              required
-            />
           </Form.Group>
           <Form.Group className='mb-3' controlId='brand'>
             <Form.Label>Description</Form.Label>
@@ -201,16 +191,82 @@ export default function InfoEditScreen() {
           </Form.Group>
           <Form.Group className='mb-3' controlId='countInStock'>
             <Form.Label>Type</Form.Label>
-            <Form.Control
-              value={type}
+            <Form.Select
               onChange={(e) => setType(e.target.value)}
+              aria-label='Default select example'
               required
+            >
+              <option>Select Type</option>
+              <option value='podcast'>Podcast</option>
+              <option value='video'>Video</option>
+              <option value='blog'>Blog</option>
+            </Form.Select>
+          </Form.Group>
+          <Form.Group className='mb-3' controlId='category'>
+            <Form.Label>Blog</Form.Label>
+            <Form.Control
+              value={blog}
+              onChange={(e) => setBlog(e.target.value)}
+              required
+              as='textarea'
+              rows={5}
             />
+            <p>Preview:</p>
+            <div className='editable-blog-preview'>
+              <HTMLTagRenderer
+                allowedTags={[
+                  "b",
+                  "div",
+                  "p",
+                  "blockquote",
+                  "caption",
+                  "h1",
+                  "h2",
+                  "h3",
+                  "h4",
+                  "h5",
+                  "i",
+                  "hr",
+                  "span",
+                  "table",
+                  "tbody",
+                  "tr",
+                  "td",
+                  "em",
+                  "strong",
+                  "i",
+                ]}
+                string={blog}
+              />
+            </div>
+            <Accordion flush>
+              <Accordion.Item eventKey='0'>
+                <Accordion.Header>Markup Guide</Accordion.Header>
+                <Accordion.Body>
+                  <p className='sample-code'>
+                    <code>{sampleCode}</code>
+                  </p>
+                </Accordion.Body>
+              </Accordion.Item>
+              <Accordion.Item eventKey='1'>
+                <Accordion.Header>Classes Guide</Accordion.Header>
+                <Accordion.Body>
+                  {" "}
+                  <p className='sample-code'>
+                    <code>{sampleCode2}</code>
+                  </p>
+                </Accordion.Body>
+              </Accordion.Item>
+            </Accordion>
           </Form.Group>
           <div className='mb-3'>
-            <Button disabled={loadingUpdate} type='submit'>
+            <button
+              className='recurring-button'
+              disabled={loadingUpdate}
+              type='submit'
+            >
               Update
-            </Button>
+            </button>
             {loadingUpdate && <LoadingBox></LoadingBox>}
           </div>
         </Form>

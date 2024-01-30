@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet-async";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 import { getError } from "../utils";
+import HTMLTagRenderer from "../components/HTMLTagRenderer";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -48,17 +49,42 @@ function InfoScreen() {
     <MessageBox variant='danger'>{error}</MessageBox>
   ) : (
     <div>
-      <div className='main-blog-holder'>
+      <div className='main-blog-holder margin-holder'>
         <div className='blog-img-holder'>
-          <img className='img-main' src={info.image} alt={info.name}></img>
+          <h1>{info.title}</h1>
+          <img className='img-main' src={info.image} alt={info.title}></img>
         </div>
         <div>
           <Helmet>
-            <title>{info.name}</title>
+            <title>{info.title}</title>
           </Helmet>
-          <h1>{info.name}</h1>
-          Description:
-          <p>{info.description}</p>
+          <div className='blog-markup-holder'>
+            <HTMLTagRenderer
+              allowedTags={[
+                "b",
+                "div",
+                "p",
+                "blockquote",
+                "caption",
+                "h1",
+                "h2",
+                "h3",
+                "h4",
+                "h5",
+                "i",
+                "hr",
+                "span",
+                "table",
+                "tbody",
+                "tr",
+                "td",
+                "em",
+                "strong",
+                "i",
+              ]}
+              string={info.blog}
+            />
+          </div>
         </div>
       </div>
     </div>

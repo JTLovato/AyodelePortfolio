@@ -44,21 +44,32 @@ export const ContactUs = (props) => {
       <div className='contact-info-holder'>
         <span className='contact-span'></span>
         <h3>Other Ways To Contact Me:</h3>
-        <a href='https://www.freecodecamp.org/' target='_blank'>
-          <img src="images/twitter_icon.png" alt="twitter icon" />
-        </a>
-        <a href='https://www.freecodecamp.org/' target='_blank'>
-        <img src="images/twitter_icon.png" alt="twitter icon" />
-
-        </a>
-        <a href='https://www.freecodecamp.org/' target='_blank'>
-        <img src="images/twitter_icon.png" alt="twitter icon" />
-
-        </a>
-        <a href='https://www.freecodecamp.org/' target='_blank'>
-        <img src="images/twitter_icon.png" alt="twitter icon" />
-
-        </a>
+        <div className='link-icon-holder'>
+          <a
+            href='https://twitter.com/ayodele_odubela'
+            rel='noreferrer'
+            target='_blank'
+          >
+            <img src='images/twitter_icon.png' alt='twitter icon' />
+          </a>
+          <a
+            href='https://www.linkedin.com/in/ayodeleodubela/'
+            rel='noreferrer'
+            target='_blank'
+          >
+            <img src='images/linkedin_icon.png' alt='twitter icon' />
+          </a>
+          <a href='mailto: aro1871@gmail.com' rel='noreferrer' target='_blank'>
+            <img src='images/email_icon.png' alt='twitter icon' />
+          </a>
+          <a
+            href='https://www.tiktok.com/@aiethics101'
+            rel='noreferrer'
+            target='_blank'
+          >
+            <img src='images/tiktok_icon.png' alt='twitter icon' />
+          </a>
+        </div>
       </div>
     </form>
   );

@@ -138,7 +138,7 @@ export default function ProductEditScreen() {
   };
 
   return (
-    <Container className='small-container'>
+    <Container className='small-container margin-holder product-edit-holder'>
       <Helmet>
         <title>Edit Product ${productId}</title>
       </Helmet>
@@ -160,6 +160,8 @@ export default function ProductEditScreen() {
           <Form.Group className='mb-3' controlId='slug'>
             <Form.Label>Slug</Form.Label>
             <Form.Control
+              disabled
+              readonly
               value={slug}
               onChange={(e) => setSlug(e.target.value)}
               required
@@ -170,14 +172,6 @@ export default function ProductEditScreen() {
             <Form.Control
               value={price}
               onChange={(e) => setPrice(e.target.value)}
-              required
-            />
-          </Form.Group>
-          <Form.Group className='mb-3' controlId='image'>
-            <Form.Label>Image File</Form.Label>
-            <Form.Control
-              value={image}
-              onChange={(e) => setImage(e.target.value)}
               required
             />
           </Form.Group>
@@ -220,7 +214,11 @@ export default function ProductEditScreen() {
             />
           </Form.Group>
           <div className='mb-3'>
-            <Button disabled={loadingUpdate} type='submit'>
+            <Button
+              className='recurring-button'
+              disabled={loadingUpdate}
+              type='submit'
+            >
               Update
             </Button>
             {loadingUpdate && <LoadingBox></LoadingBox>}

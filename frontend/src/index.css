@@ -252,6 +252,16 @@ nav .nav-header .navbar-toggler {
   margin: 0;
 }
 
+.hero-copy {
+  font-size: 150%;
+}
+
+.hero-copy span {
+  font-style: italic;
+  font-weight: 700;
+  font-family: var(--header-font);
+}
+
 /* History */
 
 .history-section {
@@ -885,7 +895,7 @@ iframe {
   align-items: center;
 }
 
-.contact-js-holder img {
+.email-img {
   width: 100%;
   padding: 15px;
 }
@@ -932,6 +942,113 @@ iframe {
 
 .contact-info-holder h3 {
   font-family: var(--header-font);
+  width: 100%;
+  text-align: center;
+}
+
+.contact-info-holder {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.link-icon-holder {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.contact-form textarea {
+  min-height: 150px;
+}
+/* Uploaded Blog */
+
+.img-main {
+  width: 100%;
+}
+
+.blog-img-holder h1 {
+  font-family: var(--header-font);
+  color: var(--white);
+  width: 100%;
+  background-color: var(--pink);
+  padding: 5px 8px;
+  border-radius: 5px;
+}
+
+.blog-markup-holder {
+  border-radius: 3px;
+  border: solid 1px var(--yellow);
+  margin: 5px 0;
+  padding: 5px;
+}
+
+.editable-blog-preview {
+  background-color: #e6e4a33c;
+  padding: 10px;
+}
+
+.sample-code {
+  font-size: 200%;
+}
+
+/* MARKUP BLOG FEATURES */
+.font-blue {
+  color: blue;
+}
+.font-red {
+  color: red;
+}
+.font-pink {
+  color: var(--pink);
+}
+.font-white {
+  color: var(--white);
+}
+.font-yellow {
+  color: var(--yellow);
+}
+.font-green {
+  color: green;
+}
+.bg-blue {
+  background-color: blue;
+}
+.bg-red {
+  background-color: red;
+}
+.bg-pink {
+  background-color: var(--pink);
+}
+.bg-white {
+  background-color: var(--white);
+}
+.bg-yellow {
+  background-color: var(--yellow);
+}
+.bg-green {
+  background-color: green;
+}
+
+.dashboard h1,
+.dashboard h2 {
+  font-family: var(--header-font);
+}
+
+.product-edit-holder h1 {
+  font-family: var(--header-font);
+}
+
+.link-icon-holder a {
+  width: 100px;
+  margin: 10px;
+}
+
+.link-icon-holder {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.link-icon-holder a img {
+  width: 100%;
 }
 
 /* 
@@ -1252,12 +1369,35 @@ iframe {
     flex-wrap: nowrap;
     justify-content: space-evenly;
     max-width: 1500px;
+    padding-left: 100px;
   }
   .contact-form {
     width: 40%;
   }
-  .contact-js-holder img {
-    width: 30%;
-    padding: 50px;
+  .email-img {
+    width: 500px;
+    height: 431px;
+  }
+
+  .img-main {
+    width: 80%;
+    margin: 0 10%;
+  }
+
+  .blog-img-holder h1 {
+    width: 50%;
+    margin-left: 10%;
+  }
+  .blog-markup-holder {
+    border: solid 2px var(--yellow);
+    width: 80%;
+    margin: 20px 10%;
+  }
+
+  .dashboard {
+    margin: 150px 10%;
+  }
+
+  #email-img {
   }
 }

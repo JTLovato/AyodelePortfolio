@@ -15,12 +15,12 @@ infoRouter.post(
   expressAsyncHandler(async (req, res) => {
     const newInfo = new Info({
       title: "sample name " + Date.now(),
-      slug: "sample-name-" + Date.now(),
+      slug: "sample_name_" + Date.now(),
       image: "/images/p1.jpg",
       description: "Sample Description",
-      source: "sample source",
-      type: "sample type",
-      blog: "sample description",
+      source: "Sample Source",
+      type: "Sample Type",
+      blog: "Sample Blog",
     });
     const info = await newInfo.save();
     res.send({ message: "Info Created", info });

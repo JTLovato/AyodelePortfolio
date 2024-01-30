@@ -14,7 +14,12 @@ export default function ContactScreen() {
 
       <div className='contact-js-holder'>
         {info ? <ContactUs session={info} /> : <ContactUs session={nonInfo} />}
-        <img src='/images/envelope.png' alt='Envelope drawing'></img>
+        <img
+          id='email-img'
+          src='/images/envelope.png'
+          className='email-img'
+          alt='Envelope drawing'
+        ></img>
       </div>
     </div>
   );

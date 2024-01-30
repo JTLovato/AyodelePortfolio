@@ -87,13 +87,12 @@ function HomeScreen() {
           <h1>
             Meet <span className='italics bold larger'>Ayodele!</span>
           </h1>
-          <p>
-            I suppose a lot of Lorem Epsom salts could go here but whatever
-            blach blah blahdkb I suppose a lot of Lorem EMPHASIS salts could go
-            here but whatever blach blah tacos oh WOW I suppose a lot of Lorem
-            Epsom salts could go here but whatever blahdkb{" "}
+          <p className='hero-copy'>
+            A leading voice in today's <span>ethical AI</span> landscape, book
+            your consultation with Ayodele today for a <span>one-on-one</span>{" "}
+            chat and stay ahead of the curve.
           </p>
-          <Link className='nav-link' id='contact-btn-main' to='/'>
+          <Link className='nav-link' id='contact-btn-main' to='/contact'>
             Contact Me!
           </Link>
         </div>

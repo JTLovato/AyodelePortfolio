@@ -191,11 +191,11 @@ export default function OrderScreen() {
   ) : error ? (
     <MessageBox variant='danger'>{error}</MessageBox>
   ) : (
-    <div>
+    <div className='margin-holder'>
       <Helmet>
         <title>Order {orderId}</title>
       </Helmet>
-      <h1 className='my-3'>Order {orderId}</h1>
+      <h1 className='my-3 new-font'>Order {orderId}</h1>
       <Row>
         <Col md={8}>
           <Card className='mb-3'>
