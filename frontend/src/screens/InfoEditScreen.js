@@ -52,22 +52,25 @@ export default function InfoEditScreen() {
       error: "",
     });
 
-  const [name, setName] = useState("");
+  const [title, setTitle] = useState("");
   const [slug, setSlug] = useState("");
-  const [price, setPrice] = useState("");
+  const [source, setSource] = useState("");
   const [image, setImage] = useState("");
-  const [category, setCategory] = useState("");
-  const [countInStock, setCountInStock] = useState("");
-  const [brand, setBrand] = useState("");
+  const [blog, setBlog] = useState("");
+  const [type, setType] = useState("");
   const [description, setDescription] = useState("");
   useEffect(() => {
     const fetchData = async () => {
       try {
         dispatch({ type: "FETCH_REQUEST" });
         const { data } = await axios.get(`/api/infos/${infoId}`);
-        setName(data.name);
+        setTitle(data.title);
         setSlug(data.slug);
         setImage(data.image);
+        setSource(data.source);
+        setBlog(data.blog);
+        setType(data.type);
+        setDescription(data.description);
         dispatch({ type: "FETCH_SUCCESS" });
       } catch (err) {
         dispatch({
@@ -86,9 +89,13 @@ export default function InfoEditScreen() {
         `/api/infos/${infoId}`,
         {
           _id: infoId,
-          name,
+          title,
           slug,
           image,
+          source,
+          blog,
+          description,
+          type,
         },
         {
           headers: { Authorization: `Bearer ${userInfo.token}` },
@@ -121,7 +128,6 @@ export default function InfoEditScreen() {
       toast.success("Image uploaded successfully");
       setImage(data.secure_url);
     } catch (err) {
-      console.log("DAMMMMIT");
       toast.error(getError(err));
       dispatch({ type: "UPLOAD_FAIL", payload: getError(err) });
     }
@@ -140,10 +146,10 @@ export default function InfoEditScreen() {
       ) : (
         <Form onSubmit={submitHandler}>
           <Form.Group className='mb-3' controlId='name'>
-            <Form.Label>Name</Form.Label>
+            <Form.Label>Title</Form.Label>
             <Form.Control
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
               required
             />
           </Form.Group>
@@ -156,10 +162,10 @@ export default function InfoEditScreen() {
             />
           </Form.Group>
           <Form.Group className='mb-3' controlId='name'>
-            <Form.Label>Price</Form.Label>
+            <Form.Label>Source</Form.Label>
             <Form.Control
-              value={price}
-              onChange={(e) => setPrice(e.target.value)}
+              value={source}
+              onChange={(e) => setSource(e.target.value)}
               required
             />
           </Form.Group>
@@ -178,34 +184,26 @@ export default function InfoEditScreen() {
           </Form.Group>
 
           <Form.Group className='mb-3' controlId='category'>
-            <Form.Label>Category</Form.Label>
+            <Form.Label>Blog</Form.Label>
             <Form.Control
-              value={category}
-              onChange={(e) => setCategory(e.target.value)}
+              value={blog}
+              onChange={(e) => setBlog(e.target.value)}
               required
             />
           </Form.Group>
           <Form.Group className='mb-3' controlId='brand'>
-            <Form.Label>Brand</Form.Label>
-            <Form.Control
-              value={brand}
-              onChange={(e) => setBrand(e.target.value)}
-              required
-            />
-          </Form.Group>
-          <Form.Group className='mb-3' controlId='countInStock'>
-            <Form.Label>Count In Stock</Form.Label>
-            <Form.Control
-              value={countInStock}
-              onChange={(e) => setCountInStock(e.target.value)}
-              required
-            />
-          </Form.Group>
-          <Form.Group className='mb-3' controlId='description'>
             <Form.Label>Description</Form.Label>
             <Form.Control
               value={description}
               onChange={(e) => setDescription(e.target.value)}
+              required
+            />
+          </Form.Group>
+          <Form.Group className='mb-3' controlId='countInStock'>
+            <Form.Label>Type</Form.Label>
+            <Form.Control
+              value={type}
+              onChange={(e) => setType(e.target.value)}
               required
             />
           </Form.Group>

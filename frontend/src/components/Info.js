@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function Info(props) {
   const { info } = props;
   return (
-    <Link to={`/infos/${info.slug}`} className='blog-card'>
+    <Link to={`/info/${info.slug}`} className='blog-card'>
       {info.type === "podcast" && (
         <img src='/images/podcast-icon.png' alt='' className='card-icon'></img>
       )}

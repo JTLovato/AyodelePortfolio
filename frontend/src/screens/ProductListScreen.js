@@ -136,8 +136,6 @@ export default function ProductListScreen() {
     }
   };
 
-  console.log(products);
-
   return (
     <div className='margin-holder middle-screen'>
       <Row>
@@ -157,7 +155,6 @@ export default function ProductListScreen() {
         </Col>
       </Row>
 
-      {loadingCreate && <LoadingBox></LoadingBox>}
       {loadingDelete && <LoadingBox></LoadingBox>}
       {loading ? (
         <LoadingBox></LoadingBox>

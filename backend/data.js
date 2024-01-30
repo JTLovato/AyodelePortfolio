@@ -15,7 +15,7 @@ const data = {
       isAdmin: true,
     },
   ],
-  info: [
+  infos: [
     {
       title: "Why Elono Musko Sucks Dick",
       slug: "why-elono-musko-sucks-dick",

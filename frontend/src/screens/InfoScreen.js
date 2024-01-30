@@ -1,11 +1,10 @@
 import axios from "axios";
-import { useContext, useEffect, useReducer } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useEffect, useReducer } from "react";
+import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 import { getError } from "../utils";
-import { Store } from "../Store";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -21,7 +20,6 @@ const reducer = (state, action) => {
 };
 
 function InfoScreen() {
-  const navigate = useNavigate();
   const params = useParams();
   const { slug } = params;
 
@@ -43,24 +41,6 @@ function InfoScreen() {
     };
     fetchData();
   }, [slug]);
-
-  const { state, dispatch: ctxDispatch } = useContext(Store);
-  // const { cart, userInfo } = state;
-  const { cart } = state;
-  const addToCartHandler = async () => {
-    const existItem = cart.cartItems.find((x) => x._id === info._id);
-    const quantity = existItem ? existItem.quantity + 1 : 1;
-    const { data } = await axios.get(`/api/infos/${info._id}`);
-    if (data.countInStock < quantity) {
-      window.alert("Sorry. Info is out of stock");
-      return;
-    }
-    ctxDispatch({
-      type: "CART_ADD_ITEM",
-      payload: { ...info, quantity },
-    });
-    navigate("/cart");
-  };
 
   return loading ? (
     <LoadingBox />

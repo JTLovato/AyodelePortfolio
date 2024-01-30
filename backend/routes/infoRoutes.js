@@ -55,7 +55,7 @@ infoRouter.delete(
   expressAsyncHandler(async (req, res) => {
     const info = await Info.findById(req.params.id);
     if (info) {
-      await info.remove();
+      await info.deleteOne();
       res.send({ message: "Info Deleted" });
     } else {
       res.status(404).send({ message: "Info Not Found" });

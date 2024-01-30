@@ -41,6 +41,8 @@ import AboutScreen from "./screens/AboutScreen";
 import TalkScreen from "./screens/TalkScreen";
 import ProjectScreen from "./screens/ProjectsScreen";
 import ContactScreen from "./screens/ContactScreen";
+import InfoListScreen from "./screens/InfoListScreen";
+import InfoEditScreen from "./screens/InfoEditScreen";
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -119,6 +121,9 @@ function App() {
                     <Link className='admin-dropdown' to='/admin/products'>
                       Products
                     </Link>
+                    <Link className='admin-dropdown' to='/admin/Infos'>
+                      Infos
+                    </Link>
                     <Link className='admin-dropdown' to='/admin/orders'>
                       Orders
                     </Link>
@@ -141,7 +146,7 @@ function App() {
         <div className='landing'>
           <Routes>
             <Route path='/product/:slug' element={<ProductScreen />} />
-            <Route path='/infos/:slug' element={<InfoScreen />} />
+            <Route path='/info/:slug' element={<InfoScreen />} />
             <Route path='/talks/:slug' element={<TalkScreen />} />
             <Route path='/projects/:slug' element={<ProjectScreen />} />
             <Route path='/cart' element={<CartScreen />} />
@@ -218,6 +223,23 @@ function App() {
               element={
                 <AdminRoute>
                   <ProductEditScreen />
+                </AdminRoute>
+              }
+            ></Route>
+
+            <Route
+              path='/admin/infos'
+              element={
+                <AdminRoute>
+                  <InfoListScreen />
+                </AdminRoute>
+              }
+            ></Route>
+            <Route
+              path='/admin/info/:id'
+              element={
+                <AdminRoute>
+                  <InfoEditScreen />
                 </AdminRoute>
               }
             ></Route>
