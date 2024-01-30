@@ -85,7 +85,7 @@ function HomeScreen() {
         </div>
         <div className='hero-info'>
           <h1>
-            Meet <span className='italics bold larger'>Ayodele!</span>
+            Meet <span className='italics bold larger shimmer'>Ayodele!</span>
           </h1>
           <p className='hero-copy'>
             A leading voice in today's <span>ethical AI</span> landscape, book

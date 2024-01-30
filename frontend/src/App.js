@@ -14,7 +14,6 @@ import PlaceOrderScreen from "./screens/PlaceOrderScreen";
 import OrderScreen from "./screens/OrderScreen";
 import OrderHistoryScreen from "./screens/OrderHistoryScreen";
 import ProfileScreen from "./screens/ProfileScreen";
-import { getError } from "./utils";
 import SearchScreen from "./screens/SearchScreen";
 import ProtectedRoute from "./components/ProtectedRoute";
 import DashboardScreen from "./screens/DashboardScreen";
@@ -43,6 +42,7 @@ import ProjectScreen from "./screens/ProjectsScreen";
 import ContactScreen from "./screens/ContactScreen";
 import InfoListScreen from "./screens/InfoListScreen";
 import InfoEditScreen from "./screens/InfoEditScreen";
+import NotFound from "./screens/NotFound";
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -96,17 +96,19 @@ function App() {
 
                 {userInfo ? (
                   <NavDropdown title={userInfo.name} id='nav-dropdown'>
-                    <Link to='/profile'>User Profile</Link>
-                    <NavDropdown.Divider />
-                    <Link to='/orderhistory'>Order History</Link>
-                    <NavDropdown.Divider />
-                    <Link
-                      className='dropdown-item'
-                      to='#signout'
-                      onClick={signoutHandler}
-                    >
-                      Sign Out
-                    </Link>
+                    <div className='nav-link-holder'>
+                      <Link to='/profile'>User Profile</Link>
+                      <NavDropdown.Divider />
+                      <Link to='/orderhistory'>Order History</Link>
+                      <NavDropdown.Divider />
+                      <Link
+                        className='dropdown-item'
+                        to='#signout'
+                        onClick={signoutHandler}
+                      >
+                        Sign Out
+                      </Link>
+                    </div>
                   </NavDropdown>
                 ) : (
                   <Link className='nav-link' to='/signin'>
@@ -115,21 +117,23 @@ function App() {
                 )}
                 {userInfo && userInfo.isAdmin && (
                   <NavDropdown title='Admin' id='admin-nav-dropdown'>
-                    <Link className='admin-dropdown' to='/admin/dashboard'>
-                      Dashboard
-                    </Link>
-                    <Link className='admin-dropdown' to='/admin/products'>
-                      Products
-                    </Link>
-                    <Link className='admin-dropdown' to='/admin/Infos'>
-                      Infos
-                    </Link>
-                    <Link className='admin-dropdown' to='/admin/orders'>
-                      Orders
-                    </Link>
-                    <Link className='admin-dropdown' to='/admin/users'>
-                      Users
-                    </Link>
+                    <div className='nav-link-holder'>
+                      <Link className='admin-dropdown' to='/admin/dashboard'>
+                        Dashboard
+                      </Link>
+                      <Link className='admin-dropdown' to='/admin/products'>
+                        Products
+                      </Link>
+                      <Link className='admin-dropdown' to='/admin/Infos'>
+                        Infos
+                      </Link>
+                      <Link className='admin-dropdown' to='/admin/orders'>
+                        Orders
+                      </Link>
+                      <Link className='admin-dropdown' to='/admin/users'>
+                        Users
+                      </Link>
+                    </div>
                   </NavDropdown>
                 )}
                 <Link className='nav-link' id='contact-btn' to='/contact'>
@@ -255,6 +259,7 @@ function App() {
             <Route path='/' element={<HomeScreen />} />
             <Route path='/blogs' element={<BlogScreen />} />
             <Route path='/projects' element={<ProjectScreen />} />
+            <Route path='*' element={<NotFound />} />
           </Routes>
         </div>
       </main>

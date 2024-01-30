@@ -185,7 +185,7 @@ nav .nav-header .navbar-toggler {
   width: 50px;
 }
 
-.navbar-nav .dropdown-menu {
+.navbar-nav .dropdown-menu .nav-link-holder {
   display: flex;
   flex-wrap: wrap;
   margin: 15px 5%;
@@ -227,7 +227,7 @@ nav .nav-header .navbar-toggler {
 
 .hero-holder {
   padding-top: 100px;
-  padding-bottom: 25px;
+  padding-bottom: 60px;
   background: var(--white);
   filter: drop-shadow(0px 6px 17px #0000007c);
 }
@@ -1051,6 +1051,29 @@ iframe {
   width: 100%;
 }
 
+/* 404 Page */
+
+.not_found_page {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+}
+
+.not_found_page img {
+  width: 80%;
+}
+
+.not_found_info a {
+  color: var(--black);
+  margin: 5px 10px;
+  background-color: var(--pink);
+  color: var(--white);
+  text-decoration: none;
+  padding: 5px 10px 7px;
+  border-radius: 5px;
+}
+
 /* 
  */
 /*  */
@@ -1398,6 +1421,132 @@ iframe {
     margin: 150px 10%;
   }
 
-  #email-img {
+  /* SHIMMMER */
+  .shimmer {
+    /* styling stuff */
+    font-weight: 300;
+    font-size: 1.5em;
+    margin: 0 auto;
+    padding: 0 40px;
+    text-align: center;
+    color: #e25dce1f;
+  }
+  .shimmer {
+    /* the shimmer magic */
+    background: -webkit-gradient(
+      linear,
+      left top,
+      right top,
+      from(#222),
+      to(#222),
+      color-stop(0.9, #e25dcd)
+    );
+    background: -moz-gradient(
+      linear,
+      left top,
+      right top,
+      from(#222),
+      to(#222),
+      color-stop(0.9, #fff)
+    );
+    background: gradient(
+      linear,
+      left top,
+      right top,
+      from(#222),
+      to(#222),
+      color-stop(0.9, #fff)
+    );
+    -webkit-background-size: 125px 100%;
+    -moz-background-size: 125px 100%;
+    background-size: 125px 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    -webkit-animation-name: shimmer;
+    -moz-animation-name: shimmer;
+    -webkit-animation-name: shimmer;
+    animation-name: shimmer;
+    -webkit-animation-duration: 3s;
+    -moz-animation-duration: 3s;
+    -webkit-animation-duration: 3s;
+    animation-duration: 3s;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-color: #222;
+  }
+
+  @-moz-keyframes shimmer {
+    0% {
+      background-position: top left;
+    }
+
+    100% {
+      background-position: top right;
+    }
+  }
+
+  @-webkit-keyframes shimmer {
+    0% {
+      background-position: top left;
+    }
+
+    100% {
+      background-position: top right;
+    }
+  }
+
+  @-o-keyframes shimmer {
+    0% {
+      background-position: top left;
+    }
+
+    100% {
+      background-position: top right;
+    }
+  }
+
+  @-ms-keyframes shimmer {
+    0% {
+      background-position: top left;
+    }
+
+    100% {
+      background-position: top right;
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: top left;
+    }
+
+    100% {
+      background-position: top right;
+    }
+  }
+
+  .not_found_page {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+  }
+
+  .not_found_page img {
+    width: 40%;
+  }
+
+  .not_found_info a {
+    margin: 5px 10px;
+  }
+
+  .not_found_info {
+    width: 40%;
   }
 }

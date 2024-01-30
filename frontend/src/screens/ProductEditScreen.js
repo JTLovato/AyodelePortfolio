@@ -189,14 +189,6 @@ export default function ProductEditScreen() {
               required
             />
           </Form.Group>
-          <Form.Group className='mb-3' controlId='brand'>
-            <Form.Label>Brand</Form.Label>
-            <Form.Control
-              value={brand}
-              onChange={(e) => setBrand(e.target.value)}
-              required
-            />
-          </Form.Group>
           <Form.Group className='mb-3' controlId='countInStock'>
             <Form.Label>Count In Stock</Form.Label>
             <Form.Control
