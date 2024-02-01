@@ -41,14 +41,14 @@ function LatestInfoScreen() {
     .toReversed()
     .slice(0, 1)
     .map((info) => {
-      return <Info className='first-blog' info={info} />;
+      return <Info key={info.slug} className='first-blog' info={info} />;
     });
 
   const nextTwoBlogs = infos
     .toReversed()
     .slice(1, 3)
     .map((info) => {
-      return <Info className='next-two-blogs' info={info} />;
+      return <Info key={info.slug} className='next-two-blogs' info={info} />;
     });
 
   return (

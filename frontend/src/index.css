@@ -321,6 +321,7 @@ iframe {
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
 
 .footer img {
@@ -328,7 +329,7 @@ iframe {
   padding-bottom: 7px;
 }
 
-.footer span {
+.line {
   width: 44%;
   background-color: var(--black);
   height: 2px;
@@ -353,6 +354,8 @@ iframe {
   text-decoration: none;
   padding: 8px;
   border-radius: 8px;
+  font-weight: 700;
+  font-size: 150%;
   transition: 0.15s all ease-in-out;
 }
 
@@ -1074,6 +1077,97 @@ iframe {
   border-radius: 5px;
 }
 
+.neural-links {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 375px;
+  height: 150px;
+  padding: 5%;
+  margin-top: 25px;
+}
+
+.ai-link {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  transition: 0.2s all ease-in-out;
+}
+.ai-link:hover {
+  transform: scale(1.2);
+  transition: 0.2s all ease-in-out;
+}
+.ai-link img {
+  width: 100%;
+  height: 100%;
+}
+.ai-1 {
+  top: 50px;
+  left: 5%;
+}
+.ai-2 {
+  top: 15px;
+  left: 30%;
+}
+.ai-3 {
+  top: 85px;
+  left: 30%;
+}
+.ai-4 {
+  top: 50px;
+  right: 5%;
+}
+.ai-5 {
+  top: 15px;
+  right: 30%;
+}
+.ai-6 {
+  top: 85px;
+  right: 30%;
+}
+
+.ai-line {
+  position: absolute;
+  background-color: var(--pink);
+  display: block;
+  height: 6px;
+  width: 60px;
+}
+
+.ai1 {
+  left: 16%;
+  top: 33%;
+  transform: rotate(-20deg);
+}
+.ai2 {
+  left: 16%;
+  top: 58%;
+  transform: rotate(20deg);
+}
+.ai3 {
+  left: 42%;
+  top: 23%;
+}
+.ai4 {
+  left: 42%;
+  bottom: 27%;
+}
+.ai5 {
+  right: 16%;
+  top: 33%;
+  transform: rotate(20deg);
+}
+.ai6 {
+  right: 16%;
+  top: 58%;
+  transform: rotate(-20deg);
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 /* 
  */
 /*  */
@@ -1237,11 +1331,11 @@ iframe {
     width: 50%;
   }
 
-  .footer img {
+  .footer-logo {
     width: 5%;
   }
 
-  .footer span {
+  .line {
     width: 47%;
   }
 
@@ -1423,7 +1517,6 @@ iframe {
 
   /* SHIMMMER */
   .shimmer {
-    /* styling stuff */
     font-weight: 300;
     font-size: 1.5em;
     margin: 0 auto;
@@ -1432,7 +1525,6 @@ iframe {
     color: #e25dce1f;
   }
   .shimmer {
-    /* the shimmer magic */
     background: -webkit-gradient(
       linear,
       left top,
@@ -1457,76 +1549,24 @@ iframe {
       to(#222),
       color-stop(0.9, #fff)
     );
-    -webkit-background-size: 125px 100%;
-    -moz-background-size: 125px 100%;
+
     background-size: 125px 100%;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
     background-clip: text;
-    -webkit-animation-name: shimmer;
-    -moz-animation-name: shimmer;
-    -webkit-animation-name: shimmer;
     animation-name: shimmer;
-    -webkit-animation-duration: 3s;
-    -moz-animation-duration: 3s;
-    -webkit-animation-duration: 3s;
-    animation-duration: 3s;
-    -webkit-animation-iteration-count: infinite;
-    -moz-animation-iteration-count: infinite;
-    -webkit-animation-iteration-count: infinite;
+    animation-duration: 9s;
     animation-iteration-count: infinite;
     background-repeat: no-repeat;
     background-position: 0 0;
     background-color: #222;
   }
 
-  @-moz-keyframes shimmer {
-    0% {
-      background-position: top left;
-    }
-
-    100% {
-      background-position: top right;
-    }
-  }
-
-  @-webkit-keyframes shimmer {
-    0% {
-      background-position: top left;
-    }
-
-    100% {
-      background-position: top right;
-    }
-  }
-
-  @-o-keyframes shimmer {
-    0% {
-      background-position: top left;
-    }
-
-    100% {
-      background-position: top right;
-    }
-  }
-
-  @-ms-keyframes shimmer {
-    0% {
-      background-position: top left;
-    }
-
-    100% {
-      background-position: top right;
-    }
-  }
-
   @keyframes shimmer {
     0% {
-      background-position: top left;
+      background-position: -300px;
     }
 
     100% {
-      background-position: top right;
+      background-position: 1200px;
     }
   }
 
@@ -1548,5 +1588,85 @@ iframe {
 
   .not_found_info {
     width: 40%;
+  }
+
+  .neural-links {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 990px;
+    height: 150px;
+    padding: 5%;
+  }
+
+  .ai-link {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+  }
+  .ai-link img {
+    width: 100%;
+    height: 100%;
+  }
+  .ai-1 {
+    top: 50px;
+    left: 5%;
+  }
+  .ai-2 {
+    top: 15px;
+    left: 33%;
+  }
+  .ai-3 {
+    top: 85px;
+    left: 33%;
+  }
+  .ai-4 {
+    top: 50px;
+    right: 5%;
+  }
+  .ai-5 {
+    top: 15px;
+    right: 33%;
+  }
+  .ai-6 {
+    top: 85px;
+    right: 33%;
+  }
+
+  .ai-line {
+    position: absolute;
+    background-color: var(--pink);
+    display: block;
+    height: 6px;
+    width: 239px;
+  }
+
+  .ai1 {
+    left: 9%;
+    top: 33%;
+    transform: rotate(-8deg);
+  }
+  .ai2 {
+    left: 9%;
+    top: 58%;
+    transform: rotate(8deg);
+  }
+  .ai3 {
+    left: 38%;
+    top: 23%;
+  }
+  .ai4 {
+    left: 38%;
+    bottom: 27%;
+  }
+  .ai5 {
+    right: 9%;
+    top: 33%;
+    transform: rotate(8deg);
+  }
+  .ai6 {
+    right: 9%;
+    top: 58%;
+    transform: rotate(-8deg);
   }
 }
