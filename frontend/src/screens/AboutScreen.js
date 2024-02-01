@@ -2,7 +2,6 @@ import { useEffect, useReducer } from "react";
 import axios from "axios";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
-import SecondCard from "../components/SecondCard";
 import AboutCard from "../components/AboutCard";
 
 const reducer = (state, action) => {

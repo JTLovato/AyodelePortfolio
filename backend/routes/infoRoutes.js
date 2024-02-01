@@ -16,7 +16,7 @@ infoRouter.post(
     const newInfo = new Info({
       title: "sample name " + Date.now(),
       slug: "sample_name_" + Date.now(),
-      image: "/images/p1.jpg",
+      image: "/images/base_image.jpg",
       description: "Sample Description",
       source: "Sample Source",
       type: "Sample Type",

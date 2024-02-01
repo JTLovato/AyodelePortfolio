@@ -238,7 +238,6 @@ nav .nav-header .navbar-toggler {
   background: var(--white);
 }
 
-.hero-image,
 .profile-img {
   max-width: 100%;
 }
@@ -1204,7 +1203,7 @@ iframe {
     align-items: center;
   }
 
-  .hero-image {
+  .profile-img {
     margin-left: 8%;
     width: 35%;
   }
