@@ -33,11 +33,11 @@ export default function CartScreen() {
   };
 
   return (
-    <div className='cart'>
+    <div className='cart margin-holder'>
       <Helmet>
         <title>Your Cart</title>
       </Helmet>
-      <h1>Your Cart</h1>
+      <h1 className='new-font'>Your Cart</h1>
       <div>
         <div className='cart-holder'>
           {cartItems.length === 0 ? (

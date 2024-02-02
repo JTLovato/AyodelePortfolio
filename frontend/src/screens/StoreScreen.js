@@ -63,7 +63,7 @@ function StoreScreen() {
           src='/images/shopbanner.jpg'
           alt='shop banner'
         />
-        <Link className='your-cart-button' to='/cart'>
+        <Link className='your-cart-button new-font' to='/cart'>
           Your Cart
         </Link>
         {loading ? (

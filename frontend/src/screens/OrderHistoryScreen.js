@@ -50,12 +50,12 @@ export default function OrderHistoryScreen() {
     fetchData();
   }, [userInfo]);
   return (
-    <div className='margin-holder sign-up-holder'>
+    <article className='margin-holder sign-up-holder'>
       <Helmet>
         <title>Order History</title>
       </Helmet>
 
-      <h1 className='new-font'>Order History</h1>
+      <h1 className='new-font'>Your Order History</h1>
       {loading ? (
         <LoadingBox></LoadingBox>
       ) : error ? (
@@ -100,6 +100,6 @@ export default function OrderHistoryScreen() {
           </tbody>
         </table>
       )}
-    </div>
+    </article>
   );
 }
