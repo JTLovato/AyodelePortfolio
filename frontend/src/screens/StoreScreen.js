@@ -51,7 +51,6 @@ function StoreScreen() {
   //     }
   //   });
   // };
-
   return (
     <div className='store-holder'>
       <Helmet>

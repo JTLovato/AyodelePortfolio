@@ -22,7 +22,11 @@ function HomeScreen() {
             your consultation with Ayodele today for a <span>one-on-one</span>{" "}
             chat and stay ahead of the curve.
           </p>
-          <Link className='nav-link' id='contact-btn-main' to='/contact'>
+          <Link
+            className='nav-link new-font'
+            id='contact-btn-main'
+            to='/contact'
+          >
             Contact Me!
           </Link>
         </section>
