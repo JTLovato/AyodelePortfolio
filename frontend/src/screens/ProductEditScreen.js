@@ -161,7 +161,7 @@ export default function ProductEditScreen() {
             <Form.Label>Slug</Form.Label>
             <Form.Control
               disabled
-              readonly
+              readOnly
               value={slug}
               onChange={(e) => setSlug(e.target.value)}
               required
