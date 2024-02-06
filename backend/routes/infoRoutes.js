@@ -14,8 +14,8 @@ infoRouter.post(
   isAdmin,
   expressAsyncHandler(async (req, res) => {
     const newInfo = new Info({
-      title: "sample name " + Date.now(),
-      slug: "sample_name_" + Date.now(),
+      title: "sample title",
+      slug: "sample_title_" + Date.now(),
       image: "/images/base_image.jpg",
       description: "Sample Description",
       source: "Sample Source",
@@ -34,7 +34,7 @@ infoRouter.put(
     const infoId = req.params.id;
     const info = await Info.findById(infoId);
     if (info) {
-      info.name = req.body.name;
+      info.title = req.body.title;
       info.slug = req.body.slug;
       info.image = req.body.image;
       info.description = req.body.description;
@@ -99,7 +99,7 @@ infoRouter.get(
     const queryFilter =
       searchQuery && searchQuery !== "all"
         ? {
-            name: {
+            title: {
               $regex: searchQuery,
               $options: "i",
             },

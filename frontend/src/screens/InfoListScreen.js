@@ -161,7 +161,7 @@ export default function InfoListScreen() {
           <thead>
             <tr>
               <th>ID</th>
-              <th>NAME</th>
+              <th>TITLE</th>
               <th>TYPE</th>
               <th>ACTIONS</th>
             </tr>
