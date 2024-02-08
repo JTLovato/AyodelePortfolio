@@ -94,8 +94,6 @@ function App() {
                 {userInfo ? (
                   <NavDropdown title={userInfo.name} id='nav-dropdown'>
                     <div className='nav-link-holder'>
-                      <Link to='/profile'>User Profile</Link>
-                      <NavDropdown.Divider />
                       <Link to='/orderhistory'>Order History</Link>
                       <NavDropdown.Divider />
                       <Link
@@ -159,14 +157,6 @@ function App() {
             <Route path='/schedule' element={<ScheduleScreen />} />
             <Route path='/about' element={<AboutScreen />} />
             <Route path='/contact' element={<ContactScreen />} />
-            <Route
-              path='/profile'
-              element={
-                <ProtectedRoute>
-                  <ProfileScreen />
-                </ProtectedRoute>
-              }
-            />
             <Route path='/placeorder' element={<PlaceOrderScreen />} />
             <Route
               path='/order/:id'

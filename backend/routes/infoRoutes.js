@@ -14,13 +14,13 @@ infoRouter.post(
   isAdmin,
   expressAsyncHandler(async (req, res) => {
     const newInfo = new Info({
-      title: "sample title",
-      slug: "sample_title_" + Date.now(),
+      title: "",
+      slug: "Slug " + Date.now(),
       image: "/images/base_image.jpg",
-      description: "Sample Description",
-      source: "Sample Source",
-      type: "Sample Type",
-      blog: "Sample Blog",
+      description: "",
+      source: "",
+      type: "Choose What Kind Of Post",
+      blog: "<div class='blog-markup-maker'> <h1 class='blog-markup-attention'></h1> <p></p> </div>",
     });
     const info = await newInfo.save();
     res.send({ message: "Info Created", info });

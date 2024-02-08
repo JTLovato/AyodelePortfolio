@@ -2,13 +2,13 @@ import mongoose from "mongoose";
 
 const infoSchema = new mongoose.Schema(
   {
-    title: { type: String, required: true, unique: false },
+    title: { type: String, required: false, unique: false },
     slug: { type: String, required: true, unique: false },
-    image: { type: String, required: true },
+    image: { type: String, required: false },
     source: { type: String, required: false },
-    description: { type: String, required: true },
-    type: { type: String, required: true },
-    blog: { type: String, required: true },
+    description: { type: String, required: false },
+    type: { type: String, required: false },
+    blog: { type: String, required: false },
   },
   {
     timestamps: true,

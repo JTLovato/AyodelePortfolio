@@ -142,7 +142,7 @@ export default function InfoEditScreen() {
 `;
 
   const sampleCode2 = `COLORS: White, Red, Blue, Pink, Yellow, Green. class="font-COLOR"
-BACKGROUND COLORS: White, Red, Blue, Pink, Yellow, Green. class="bg-COLOR"
+BACKGROUND COLORS: White, Red, Blue, Pink, Yellow, Green. class="bg-COLOR" class="new-font"
 
 `;
 
@@ -207,7 +207,6 @@ BACKGROUND COLORS: White, Red, Blue, Pink, Yellow, Green. class="bg-COLOR"
             <Form.Control
               value={source}
               onChange={(e) => setSource(e.target.value)}
-              required
             />
           </Form.Group>
           <Form.Group className='mb-3' controlId='category'>

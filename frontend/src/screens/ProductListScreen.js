@@ -175,7 +175,9 @@ export default function ProductListScreen() {
               {products.map((product) => (
                 <tr key={product._id}>
                   <td>{product._id}</td>
-                  <td>{product.name}</td>
+                  <td>
+                    <Link to={`/product/${product.slug}`}>{product.name}</Link>
+                  </td>
                   <td>{product.price}</td>
                   <td>
                     <Button

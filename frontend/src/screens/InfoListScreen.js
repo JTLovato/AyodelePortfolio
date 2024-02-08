@@ -163,17 +163,19 @@ export default function InfoListScreen() {
               <th>ID</th>
               <th>TITLE</th>
               <th>TYPE</th>
+              <th>CREATED</th>
               <th>ACTIONS</th>
             </tr>
           </thead>
           <tbody>
-            {infos.map((info) => (
+            {infos.toReversed().map((info) => (
               <tr key={info._id}>
                 <td>{info._id}</td>
                 <td>
                   <Link to={`/info/${info.slug}`}>{info.title}</Link>
                 </td>
                 <td>{info.type}</td>
+                <td>{info.createdAt}</td>
                 <td>
                   <Button
                     type='button'
