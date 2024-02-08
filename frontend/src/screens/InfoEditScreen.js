@@ -202,6 +202,14 @@ BACKGROUND COLORS: White, Red, Blue, Pink, Yellow, Green. class="bg-COLOR"
               <option value='blog'>Blog</option>
             </Form.Select>
           </Form.Group>
+          <Form.Group className='mb-3' controlId='source'>
+            <Form.Label>Source</Form.Label>
+            <Form.Control
+              value={source}
+              onChange={(e) => setSource(e.target.value)}
+              required
+            />
+          </Form.Group>
           <Form.Group className='mb-3' controlId='category'>
             <Form.Label>Blog</Form.Label>
             <Form.Control

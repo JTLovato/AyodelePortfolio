@@ -49,15 +49,25 @@ function InfoScreen() {
     <MessageBox variant='danger'>{error}</MessageBox>
   ) : (
     <div>
+      <Helmet>
+        <title>{info.title}</title>
+      </Helmet>
       <div className='main-blog-holder margin-holder'>
         <div className='blog-img-holder'>
           <h1>{info.title}</h1>
           <img className='img-main' src={info.image} alt={info.title}></img>
         </div>
+        {info.source && (
+          <div>
+            <iframe
+              className='blog-iframe'
+              title={info.title}
+              src={info.source}
+              style={{ width: "100vw", height: "calc(100vw / 1.9" }}
+            ></iframe>
+          </div>
+        )}
         <div>
-          <Helmet>
-            <title>{info.title}</title>
-          </Helmet>
           <div className='blog-markup-holder'>
             <HTMLTagRenderer
               allowedTags={[

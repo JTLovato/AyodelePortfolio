@@ -4,7 +4,7 @@ const data = {
   users: [
     {
       name: "John",
-      email: "jtlovato@ersyte.com",
+      email: "jtlovato@rsyte.com",
       password: bcrypt.hashSync("Sakic9219"),
       isAdmin: true,
     },
@@ -33,8 +33,8 @@ const data = {
       image: "/images/p1.jpg",
       description:
         "perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam,",
-      source: "www.thisplacetoo.com/podcast/embed",
-      info: "",
+      source: "",
+      info: "THINGS",
     },
     {
       title: "Musk Sucka",
@@ -43,8 +43,8 @@ const data = {
       image: "/images/p1.jpg",
       description:
         "perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam,",
-      source: "www.thisplace.com/video/embed",
-      info: "",
+      source: "",
+      info: "MORE THINGS",
     },
     {
       title: "Why Elono Musko Sucks Dick2",
@@ -63,8 +63,8 @@ const data = {
       image: "/images/p1.jpg",
       description:
         "perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam,",
-      source: "www.thisplacetoo.com/podcast/embed",
-      info: "",
+      source: "",
+      info: "MORE THINGS",
     },
     {
       title: "Musk Sucka2",
@@ -73,8 +73,8 @@ const data = {
       image: "/images/p1.jpg",
       description:
         "perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam,",
-      source: "www.thisplace.com/video/embed",
-      info: "",
+      source: "https://player.vimeo.com/video/911011188",
+      info: "LAST THINGS",
     },
   ],
   products: [
