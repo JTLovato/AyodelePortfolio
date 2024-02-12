@@ -13,8 +13,6 @@ import PaymentMethodScreen from "./screens/PaymentMethodScreen";
 import PlaceOrderScreen from "./screens/PlaceOrderScreen";
 import OrderScreen from "./screens/OrderScreen";
 import OrderHistoryScreen from "./screens/OrderHistoryScreen";
-import ProfileScreen from "./screens/ProfileScreen";
-import SearchScreen from "./screens/SearchScreen";
 import ProtectedRoute from "./components/ProtectedRoute";
 import DashboardScreen from "./screens/DashboardScreen";
 import AdminRoute from "./components/AdminRoute";
@@ -149,7 +147,6 @@ function App() {
             <Route path='/talks/:slug' element={<TalkScreen />} />
             <Route path='/projects/:slug' element={<ProjectScreen />} />
             <Route path='/cart' element={<CartScreen />} />
-            <Route path='/search' element={<SearchScreen />} />
             <Route path='/signin' element={<SigninScreen />} />
             <Route path='/signup' element={<SignupScreen />} />
             <Route path='/links' element={<LinksScreen />} />
