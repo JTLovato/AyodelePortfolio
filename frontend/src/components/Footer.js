@@ -22,6 +22,11 @@ export default function Footer() {
           <Link to='/links'>Links</Link>
         </div>
       </div>
+      <section className='ref-link'>
+        <a href='https://www.rsyte.com' target='_blank' rel='noreferrer'>
+          Made with &#9829; At Rsyte.com
+        </a>
+      </section>
     </div>
   );
 }

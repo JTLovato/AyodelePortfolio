@@ -315,6 +315,21 @@ nav .nav-header .navbar-toggler {
 
 /* Footer */
 
+.ref-link {
+  width: 100%;
+  text-align: center;
+}
+
+.ref-link a {
+  color: var(--pink);
+  text-decoration: none;
+  font-family: var(--header-font);
+}
+
+.ref-link a:hover {
+  text-decoration: underline;
+}
+
 .footerline {
   display: flex;
   flex-wrap: nowrap;
