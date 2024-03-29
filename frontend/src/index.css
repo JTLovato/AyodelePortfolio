@@ -320,6 +320,7 @@ nav .nav-header .navbar-toggler {
   text-align: center;
   background-color: var(--pink);
   padding: 3px 0;
+  margin-top: 7px;
 }
 
 .ref-link a {
