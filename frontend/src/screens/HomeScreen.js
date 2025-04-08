@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
-import LatestInfoScreen from "./LatestInfoScreen";
 import HistoryScreen from "./HistoryScreen";
 import NewsletterScreen from "./NewsletterScreen";
 
@@ -32,7 +31,6 @@ function HomeScreen() {
         </section>
       </div>
       <div className='window-holder'>
-        {/* <LatestInfoScreen /> */}
         <HistoryScreen />
         <NewsletterScreen />
       </div>
