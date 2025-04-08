@@ -31,8 +31,8 @@ function HomeScreen() {
           </Link>
         </section>
       </div>
-      <div>
-        <LatestInfoScreen />
+      <div className='window-holder'>
+        {/* <LatestInfoScreen /> */}
         <HistoryScreen />
         <NewsletterScreen />
       </div>

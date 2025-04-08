@@ -60,7 +60,12 @@ function App() {
       </Helmet>
 
       <header>
-        <Navbar expand='lg' fixed='top'>
+        <Link to='/'>
+          <Navbar.Brand>
+            <img src='../images/logo.png' alt='Logo' />
+          </Navbar.Brand>
+        </Link>
+        {/* <Navbar expand='lg' fixed='top'>
           <div className='nav-header'>
             <Link to='/'>
               <Navbar.Brand>
@@ -135,7 +140,14 @@ function App() {
               </Nav>
             </Navbar.Collapse>
           </div>
-        </Navbar>
+        </Navbar> */}
+        <Link
+          className='nav-link nav-contact-me'
+          id='contact-btn'
+          to='/contact'
+        >
+          Contact Me!
+        </Link>
       </header>
       <ToastContainer position='bottom-center' limit={1} />
 

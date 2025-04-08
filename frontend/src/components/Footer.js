@@ -11,7 +11,7 @@ export default function Footer() {
       </div>
       <div className='link-section'>
         <h1 className='italics larger bold'>Ayodele Odubela</h1>
-        <div className='link-list'>
+        {/* <div className='link-list'>
           <Link to='/'>Home</Link>
           <Link to='/about'>About</Link>
           <Link to='/projects'>Projects</Link>
@@ -20,11 +20,11 @@ export default function Footer() {
           <Link to='/store'>Store</Link>
           <Link to='/blogs'>Blogs</Link>
           <Link to='/links'>Links</Link>
-        </div>
+        </div> */}
       </div>
       <section className='ref-link'>
-        <a href='https://www.rsyte.com' target='_blank' rel='noreferrer'>
-          Made with &#9829; At Rsyte.com
+        <a href='https://www.johntlovato.com' target='_blank' rel='noreferrer'>
+          Made with &#9829; by JTL
         </a>
       </section>
     </div>

@@ -138,6 +138,11 @@ tr:nth-child(odd) td {
 
 header {
   width: 100%;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  padding: 10px;
 }
 
 .navbar {
@@ -181,6 +186,13 @@ nav .nav-header .navbar-toggler {
   z-index: 10;
 }
 
+.nav-contact-me {
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .navbar-brand img {
   width: 50px;
 }
@@ -205,7 +217,6 @@ nav .nav-header .navbar-toggler {
   background: var(--pink);
   color: var(--white);
   border-radius: 10px;
-  padding: 12px 12px 5px;
 }
 
 #contact-btn-main {
@@ -226,7 +237,7 @@ nav .nav-header .navbar-toggler {
 /* Hero-section */
 
 .hero-holder {
-  padding-top: 100px;
+  padding-top: 60px;
   padding-bottom: 60px;
   background: var(--white);
   filter: drop-shadow(0px 6px 17px #0000007c);
@@ -265,6 +276,12 @@ nav .nav-header .navbar-toggler {
 
 .history-section {
   width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.window-holder {
+  width: 100%;
 }
 
 .history {
@@ -284,6 +301,11 @@ nav .nav-header .navbar-toggler {
 .history img {
   width: 90%;
   margin: 10px 0;
+}
+
+.history-image-holder {
+  display: flex;
+  justify-content: center;
 }
 
 /* Newletter */
@@ -1072,7 +1094,6 @@ nav .nav-header .navbar-toggler {
 }
 
 .link-icon-holder a {
-  width: 100px;
   margin: 10px;
 }
 
@@ -1222,10 +1243,8 @@ nav .nav-header .navbar-toggler {
     width: 100%;
   }
 
-  #contact-btn {
-    position: absolute;
-    right: 7px;
-    top: 11px;
+  header {
+    padding: 10px 15%;
   }
 
   .hero-holder {
@@ -1309,6 +1328,7 @@ nav .nav-header .navbar-toggler {
     width: 90%;
     margin: 15px 5%;
     border-radius: 10px;
+    max-width: 1200px;
   }
 
   .history-holder {
@@ -1343,8 +1363,8 @@ nav .nav-header .navbar-toggler {
 
   .newsletter-code {
     width: 100%;
-    padding: 0 20%;
     border-radius: 0px;
+    max-width: 1200px;
   }
 
   .link-section {
@@ -1354,7 +1374,7 @@ nav .nav-header .navbar-toggler {
   }
 
   .link-section h1 {
-    width: 50%;
+    /* width: 50%; */
     font-size: 400%;
   }
 
